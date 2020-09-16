@@ -1,4 +1,4 @@
-#Travel Expert Desktop App:  
+# Travel Expert Desktop App:  
 Tarek: Package  
 Patrick: Product  
 Stevyn: Supplier  
