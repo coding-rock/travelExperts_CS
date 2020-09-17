@@ -16,5 +16,13 @@ namespace Travel_Experts_CS
     {
       InitializeComponent();
     }
+
+    private void frmSupplier_Load(object sender, EventArgs e)
+    {
+      TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext();
+      supplierDataGridView.DataSource = (from supp in dbContext.Suppliers
+                                        orderby supp.SupName
+                                        select supp).ToList();
+    }
   }
 }
