@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Travel_Experts_CS
 {
+  // note
     class Validator
     {
         public static bool IsPresent(TextBox textBox)
