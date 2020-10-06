@@ -39,6 +39,7 @@
       this.lblSupplierOut = new System.Windows.Forms.Label();
       this.btnDelete = new System.Windows.Forms.Button();
       this.btnAdd = new System.Windows.Forms.Button();
+      this.btnDeleteProduct = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.SupplierInGridView)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.SupplierOutGridView)).BeginInit();
@@ -56,10 +57,11 @@
       this.productDataGridView.Size = new System.Drawing.Size(295, 200);
       this.productDataGridView.TabIndex = 1;
       this.productDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellClick);
+      this.productDataGridView.SelectionChanged += new System.EventHandler(this.productDataGridView_SelectionChanged);
       // 
       // btnNewProduct
       // 
-      this.btnNewProduct.Location = new System.Drawing.Point(372, 69);
+      this.btnNewProduct.Location = new System.Drawing.Point(372, 55);
       this.btnNewProduct.Name = "btnNewProduct";
       this.btnNewProduct.Size = new System.Drawing.Size(121, 23);
       this.btnNewProduct.TabIndex = 2;
@@ -78,7 +80,7 @@
       // 
       // btnEdit
       // 
-      this.btnEdit.Location = new System.Drawing.Point(372, 129);
+      this.btnEdit.Location = new System.Drawing.Point(372, 115);
       this.btnEdit.Name = "btnEdit";
       this.btnEdit.Size = new System.Drawing.Size(121, 23);
       this.btnEdit.TabIndex = 4;
@@ -114,7 +116,7 @@
       // 
       // btnClose
       // 
-      this.btnClose.Location = new System.Drawing.Point(553, 129);
+      this.btnClose.Location = new System.Drawing.Point(553, 175);
       this.btnClose.Name = "btnClose";
       this.btnClose.Size = new System.Drawing.Size(75, 23);
       this.btnClose.TabIndex = 7;
@@ -156,11 +158,22 @@
       this.btnAdd.UseVisualStyleBackColor = true;
       this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
       // 
+      // btnDeleteProduct
+      // 
+      this.btnDeleteProduct.Location = new System.Drawing.Point(372, 175);
+      this.btnDeleteProduct.Name = "btnDeleteProduct";
+      this.btnDeleteProduct.Size = new System.Drawing.Size(121, 23);
+      this.btnDeleteProduct.TabIndex = 12;
+      this.btnDeleteProduct.Text = "&Delete Product";
+      this.btnDeleteProduct.UseVisualStyleBackColor = true;
+      this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
+      // 
       // frmProduct
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(661, 505);
+      this.Controls.Add(this.btnDeleteProduct);
       this.Controls.Add(this.btnAdd);
       this.Controls.Add(this.btnDelete);
       this.Controls.Add(this.lblSupplierOut);
@@ -197,5 +210,6 @@
     private System.Windows.Forms.Label lblSupplierOut;
     private System.Windows.Forms.Button btnDelete;
     private System.Windows.Forms.Button btnAdd;
+    private System.Windows.Forms.Button btnDeleteProduct;
   }
 }

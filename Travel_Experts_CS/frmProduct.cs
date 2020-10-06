@@ -34,17 +34,7 @@ namespace Travel_Experts_CS
 
     private void productDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-      //  set the product ID based on the selected row from the grid view
-      int rowNum = Convert.ToInt32(productDataGridView.CurrentCell.RowIndex);
-      nProductID = Convert.ToInt32(productDataGridView["ID", rowNum].Value);
-
-      //  display the grid title for the two supplier lists
-      string strProductName = productDataGridView["Product", rowNum].Value.ToString();
-      lblSupplierIn.Text = "Suppliers provide the\n" + strProductName + " services:";
-      lblSupplierOut.Text = "Suppliers do NOT provide the\n" + strProductName + " services:";
-
-      //  display the data for the two supplier lists
-      DisplaySupplierOnProduct(nProductID);
+      ChangeProduct();
     }
 
     /// <summary>
@@ -222,6 +212,7 @@ namespace Travel_Experts_CS
       this.Close();
     }
 
+    //  Click the New Product button to add a new product
     private void btnNewProduct_Click(object sender, EventArgs e)
     {
       frmAddEditProduct secondForm = new frmAddEditProduct();
@@ -229,10 +220,12 @@ namespace Travel_Experts_CS
 
       DialogResult result = secondForm.ShowDialog();
 
+      //  if the new product was added into the database, refresh the product list
       if (result == DialogResult.OK)
         DisplayProducts();
     }
 
+    //  display or refresh the product list
     private void DisplayProducts()
     {
       //  Set the data source for the product data grid view
@@ -267,23 +260,115 @@ namespace Travel_Experts_CS
       DisplaySupplierOnProduct(nProductID);
     }
 
+    //  Click the Edit Product button to edit the current product
     private void btnEdit_Click(object sender, EventArgs e)
     {
+      //  if no product was selected, give warning message and return
       if (nProductID == 0)
       {
         MessageBox.Show("Please select a product first!");
         return;
       }
 
+      //  get the current product from the database
+      Product objCurrentProduct = (from prod in dbContext.Products
+                                   where prod.ProductId == nProductID
+                                   select prod).SingleOrDefault();
+
+      //  if the current product does not exist, refresh the product list and return
+      if (objCurrentProduct == null)
+      {
+        MessageBox.Show("The product does not exist any more, please check again!");
+        DisplayProducts();
+        return;
+      }
+
+      //  open the new form to edit the product
       frmAddEditProduct secondFrm = new frmAddEditProduct();
       secondFrm.bIsNewProduct = false;
-      secondFrm.objCurrentProduct = (from prod in dbContext.Products
-                                      where prod.ProductId == nProductID
-                                     select prod).Single();
-
+      secondFrm.objCurrentProduct = objCurrentProduct;
       DialogResult result = secondFrm.ShowDialog();
+
+      //  if the product was successfully edited, refresh the product list
       if (result == DialogResult.OK)
         DisplayProducts();
+    }
+
+    private void btnDeleteProduct_Click(object sender, EventArgs e)
+    {
+      //  if no product was selected, give warning message and return
+      if (nProductID == 0)
+      {
+        MessageBox.Show("Please select a product first!");
+        return;
+      }
+
+      //  get the current product Name for the warning messages below
+      int nRowNum = Convert.ToInt32(productDataGridView.CurrentCell.RowIndex);
+      string strProductName = productDataGridView["Product", nRowNum].Value.ToString();
+
+      //  confirmation with user, return if user choose "No"
+      if (MessageBox.Show("Are you sure to delete the product: " + strProductName + " ?",
+        "Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
+        return;
+
+      //  Check if some suppliers providing this services.
+      var objSuppliers = (from ps in dbContext.Products_Suppliers
+                           join s in dbContext.Suppliers
+                           on ps.SupplierId equals s.SupplierId
+                           where ps.ProductId == nProductID
+                           select s.SupName).ToList();
+
+      //  if some suppliers are providing the current product, give a warning message and return
+      if (objSuppliers.Count > 0)
+      {
+        string strSupplierList = String.Empty;
+        foreach (string s in objSuppliers)
+          strSupplierList += s + "\n";
+        MessageBox.Show("The following suppliers are providing the " +
+          strProductName + " service:\n" + strSupplierList + "Please change them first.");
+        return;
+      }
+
+      //  Delete the product from database
+      try
+      {
+        var objToBeDeleted = (from p in dbContext.Products
+                              where p.ProductId == nProductID
+                              select p).FirstOrDefault();
+        if (objToBeDeleted != null)
+        {
+          dbContext.Products.DeleteOnSubmit(objToBeDeleted);
+          dbContext.SubmitChanges();
+        }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show("Some error happened: " + ex.Message, ex.GetType().ToString());
+      }
+
+      //  refresh product list
+      DisplayProducts();
+    }
+
+    private void productDataGridView_SelectionChanged(object sender, EventArgs e)
+    {
+      ChangeProduct();
+    }
+
+    private void ChangeProduct()
+    {
+      //  set the product ID based on the selected row from the grid view
+      int rowNum = Convert.ToInt32(productDataGridView.CurrentCell.RowIndex);
+      nProductID = Convert.ToInt32(productDataGridView["ID", rowNum].Value);
+
+      //  display the grid title for the two supplier lists
+      string strProductName = productDataGridView["Product", rowNum].Value.ToString();
+      lblSupplierIn.Text = "Suppliers provide the\n" + strProductName + " services:";
+      lblSupplierOut.Text = "Suppliers do NOT provide the\n" + strProductName + " services:";
+
+      //  display the data for the two supplier lists
+      DisplaySupplierOnProduct(nProductID);
     }
   } //  end of class
 } //  end of namespace
