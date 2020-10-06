@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="frmSupplierAddEditSup.Designer.cs">
       <DependentUpon>frmSupplierAddEditSup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddEditPackage.cs">
       <SubType>Form</SubType>
     </Compile>
