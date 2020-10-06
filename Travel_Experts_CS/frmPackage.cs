@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,16 @@ namespace Travel_Experts_CS
 
 
     private void frmPackage_Load(object sender, EventArgs e)
+    {
+      RefreshDisplay();
+    }
+
+    private void frmPackage_Activated(object sender, EventArgs e)
+    {
+      RefreshDisplay();
+    }
+
+    private void RefreshDisplay()
     {
       DisplayPackages();
       DisplayPackageDetails();
@@ -85,28 +96,47 @@ namespace Travel_Experts_CS
 
     private void btnAddPPS_Click(object sender, EventArgs e)
     {
-      //frmPackProdSupp ppsForm = new frmPackProdSupp();
-      //ppsForm.isAddPPS = true;
-      //ppsForm.packageID = Convert.ToInt32(txtPackageID.Text);
-      //ppsForm.packageName = txtPackageName.Text;
-      //DialogResult result = ppsForm.ShowDialog();
-    }
-
-    private void btnModifyPPS_Click(object sender, EventArgs e)
-    {
-      //frmPackProdSupp ppsForm = new frmPackProdSupp();
-      //ppsForm.isAddPPS = false;
-      //ppsForm.packageID = Convert.ToInt32(txtPackageID.Text);
-      //ppsForm.packageName = txtPackageName.Text;
-      //ppsForm.productName = PPSDataGridView[0, PPSDataGridView.CurrentCell.RowIndex].Value.ToString();
-      //ppsForm.oldProdID = (int)PPSDataGridView[2, PPSDataGridView.CurrentCell.RowIndex].Value;
-      //ppsForm.oldPSID = (int)PPSDataGridView[3, PPSDataGridView.CurrentCell.RowIndex].Value;
-      //DialogResult result = ppsForm.ShowDialog();
+      frmPackProdSupp ppsForm = new frmPackProdSupp();
+      ppsForm.isAddPPS = true;
+      ppsForm.packageID = Convert.ToInt32(txtPackageID.Text);
+      ppsForm.packageName = txtPackageName.Text;
+      DialogResult result = ppsForm.ShowDialog();
     }
 
     private void txtPackageID_TextChanged(object sender, EventArgs e)
     {
       DisplayPackageDetails();
+    }
+
+    private void btnDeletePPS_Click(object sender, EventArgs e)
+    {
+      int packageId = Convert.ToInt32(txtPackageID.Text);
+      int psId = (int)PPSDataGridView[3, PPSDataGridView.CurrentCell.RowIndex].Value;
+      try
+      {
+        using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
+        {
+          var pps = (from p in dbContext.Packages_Products_Suppliers
+                     where p.ProductSupplierId == psId
+                     && p.PackageId == packageId
+                     select p).Single();
+
+          dbContext.Packages_Products_Suppliers.DeleteOnSubmit(pps);
+          dbContext.SubmitChanges();
+          DisplayPackageDetails();
+        }
+      }
+      catch (ChangeConflictException)
+      {
+        MessageBox.Show("Another user changed or deleted the current record", "Concurrency Exception");
+        DialogResult = DialogResult.Retry;
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show("An SQL error occured:\n\n"
+                        + ex.Message, ex.GetType().ToString());
+      }
+
     }
   }
 }
