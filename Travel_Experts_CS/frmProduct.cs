@@ -29,36 +29,7 @@ namespace Travel_Experts_CS
 
     private void frmProduct_Load(object sender, EventArgs e)
     {
-      //  Set the data source for the product data grid view
-      try
-      {
-        productDataGridView.DataSource = (from prod in dbContext.Products
-                                          orderby prod.ProdName
-                                          select new
-                                          {
-                                            ID = prod.ProductId,
-                                            Product = prod.ProdName
-                                          }).ToList();
-      }
-      catch (Exception ex)
-      {
-        MessageBox.Show(ex.Message, ex.GetType().ToString());
-      }
-
-      //  set the column width for the product data grid view
-      productDataGridView.Columns[0].Width = 50;
-      productDataGridView.Columns[1].Width = 200;
-
-      //  set the first row as the default product
-      nProductID = Convert.ToInt32(productDataGridView["ID", 0].Value);
-      string strProductName = productDataGridView["Product", 0].Value.ToString();
-
-      //  display the grid title for the two supplier lists
-      lblSupplierIn.Text = "Suppliers provide the\n" + strProductName + " services:";
-      lblSupplierOut.Text = "Suppliers do NOT provide the\n" + strProductName + " services:";
-
-      //  display the data for the two supplier lists
-      DisplaySupplierOnProduct(nProductID);
+      DisplayProducts();
     }
 
     private void productDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -249,6 +220,70 @@ namespace Travel_Experts_CS
     private void btnClose_Click(object sender, EventArgs e)
     {
       this.Close();
+    }
+
+    private void btnNewProduct_Click(object sender, EventArgs e)
+    {
+      frmAddEditProduct secondForm = new frmAddEditProduct();
+      secondForm.bIsNewProduct = true;
+
+      DialogResult result = secondForm.ShowDialog();
+
+      if (result == DialogResult.OK)
+        DisplayProducts();
+    }
+
+    private void DisplayProducts()
+    {
+      //  Set the data source for the product data grid view
+      try
+      {
+        productDataGridView.DataSource = (from prod in dbContext.Products
+                                          orderby prod.ProdName
+                                          select new
+                                          {
+                                            ID = prod.ProductId,
+                                            Product = prod.ProdName
+                                          }).ToList();
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message, ex.GetType().ToString());
+      }
+
+      //  set the column width for the product data grid view
+      productDataGridView.Columns[0].Width = 50;
+      productDataGridView.Columns[1].Width = 200;
+
+      //  set the first row as the default product
+      nProductID = Convert.ToInt32(productDataGridView["ID", 0].Value);
+      string strProductName = productDataGridView["Product", 0].Value.ToString();
+
+      //  display the grid title for the two supplier lists
+      lblSupplierIn.Text = "Suppliers provide the\n" + strProductName + " services:";
+      lblSupplierOut.Text = "Suppliers do NOT provide the\n" + strProductName + " services:";
+
+      //  display the data for the two supplier lists
+      DisplaySupplierOnProduct(nProductID);
+    }
+
+    private void btnEdit_Click(object sender, EventArgs e)
+    {
+      if (nProductID == 0)
+      {
+        MessageBox.Show("Please select a product first!");
+        return;
+      }
+
+      frmAddEditProduct secondFrm = new frmAddEditProduct();
+      secondFrm.bIsNewProduct = false;
+      secondFrm.objCurrentProduct = (from prod in dbContext.Products
+                                      where prod.ProductId == nProductID
+                                     select prod).Single();
+
+      DialogResult result = secondFrm.ShowDialog();
+      if (result == DialogResult.OK)
+        DisplayProducts();
     }
   } //  end of class
 } //  end of namespace

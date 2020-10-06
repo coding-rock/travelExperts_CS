@@ -65,6 +65,7 @@
       this.btnNewProduct.TabIndex = 2;
       this.btnNewProduct.Text = "&New  Product";
       this.btnNewProduct.UseVisualStyleBackColor = true;
+      this.btnNewProduct.Click += new System.EventHandler(this.btnNewProduct_Click);
       // 
       // label1
       // 
@@ -83,6 +84,7 @@
       this.btnEdit.TabIndex = 4;
       this.btnEdit.Text = "&Edit  Product";
       this.btnEdit.UseVisualStyleBackColor = true;
+      this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
       // 
       // SupplierInGridView
       // 
