@@ -13,7 +13,8 @@ namespace Travel_Experts_CS
 {
   public partial class frmAddEditPackage : Form
   {
-    public bool isAdd; // assigned from home form
+    // assigned from home form
+    public bool isAdd; 
     public int packageID;
 
     public frmAddEditPackage()
@@ -35,6 +36,7 @@ namespace Travel_Experts_CS
       {
         using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
         {
+          // fetch package based on id passed from package form.
           Package package = dbContext.Packages.Single(pack => pack.PackageId == packageID);
 
           // fill in text boxes
@@ -167,6 +169,7 @@ namespace Travel_Experts_CS
       return Convert.ToInt32(txtPackageID.Text);
     }
 
+    // rejects dat if end date is younger than start date
     private bool IsValidEndDate(DateTimePicker endDate)
     {
       if (endDate.Value < dtpStart.Value)
@@ -178,6 +181,7 @@ namespace Travel_Experts_CS
       return true;
     }
 
+    // rejects commissions greater than package price
     private bool IsValidCommPrice(TextBox textBox)
     {
       {

@@ -40,9 +40,7 @@
       this.txtPackageDesc = new System.Windows.Forms.Label();
       this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.packageBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-      this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-      this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -51,7 +49,6 @@
       this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-      this.packageBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
       this.txtPackageID = new System.Windows.Forms.TextBox();
       this.txtPackageComm = new System.Windows.Forms.TextBox();
       this.txtPackagePrice = new System.Windows.Forms.TextBox();
@@ -164,10 +161,10 @@
       // 
       // packageBindingNavigator
       // 
-      this.packageBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+      this.packageBindingNavigator.AddNewItem = null;
       this.packageBindingNavigator.BindingSource = this.packageBindingSource;
       this.packageBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-      this.packageBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+      this.packageBindingNavigator.DeleteItem = null;
       this.packageBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
       this.packageBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
       this.packageBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -179,29 +176,17 @@
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.packageBindingNavigatorSaveItem});
-      this.packageBindingNavigator.Location = new System.Drawing.Point(3, 9);
+            this.bindingNavigatorSeparator2});
+      this.packageBindingNavigator.Location = new System.Drawing.Point(9, 9);
       this.packageBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
       this.packageBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
       this.packageBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
       this.packageBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
       this.packageBindingNavigator.Name = "packageBindingNavigator";
       this.packageBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-      this.packageBindingNavigator.Size = new System.Drawing.Size(303, 30);
+      this.packageBindingNavigator.Size = new System.Drawing.Size(231, 30);
       this.packageBindingNavigator.TabIndex = 30;
       this.packageBindingNavigator.Text = "bindingNavigator1";
-      // 
-      // bindingNavigatorAddNewItem
-      // 
-      this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-      this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-      this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 27);
-      this.bindingNavigatorAddNewItem.Text = "Add new";
       // 
       // bindingNavigatorCountItem
       // 
@@ -209,15 +194,6 @@
       this.bindingNavigatorCountItem.Size = new System.Drawing.Size(41, 27);
       this.bindingNavigatorCountItem.Text = "of {0}";
       this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-      // 
-      // bindingNavigatorDeleteItem
-      // 
-      this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-      this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-      this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 27);
-      this.bindingNavigatorDeleteItem.Text = "Delete";
       // 
       // bindingNavigatorMoveFirstItem
       // 
@@ -279,15 +255,6 @@
       // 
       this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
       this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 30);
-      // 
-      // packageBindingNavigatorSaveItem
-      // 
-      this.packageBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.packageBindingNavigatorSaveItem.Enabled = false;
-      this.packageBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("packageBindingNavigatorSaveItem.Image")));
-      this.packageBindingNavigatorSaveItem.Name = "packageBindingNavigatorSaveItem";
-      this.packageBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 27);
-      this.packageBindingNavigatorSaveItem.Text = "Save Data";
       // 
       // txtPackageID
       // 
@@ -363,11 +330,11 @@
       // 
       // btnAddPPS
       // 
-      this.btnAddPPS.Location = new System.Drawing.Point(78, 305);
+      this.btnAddPPS.Location = new System.Drawing.Point(48, 305);
       this.btnAddPPS.Name = "btnAddPPS";
-      this.btnAddPPS.Size = new System.Drawing.Size(129, 61);
+      this.btnAddPPS.Size = new System.Drawing.Size(159, 61);
       this.btnAddPPS.TabIndex = 22;
-      this.btnAddPPS.Text = "ADD PRODUCT";
+      this.btnAddPPS.Text = "ADD PRODUCT/SUPPLIER";
       this.btnAddPPS.UseVisualStyleBackColor = true;
       this.btnAddPPS.Click += new System.EventHandler(this.btnAddPPS_Click);
       // 
@@ -387,9 +354,9 @@
       // 
       this.btnDeletePPS.Location = new System.Drawing.Point(249, 305);
       this.btnDeletePPS.Name = "btnDeletePPS";
-      this.btnDeletePPS.Size = new System.Drawing.Size(129, 61);
+      this.btnDeletePPS.Size = new System.Drawing.Size(168, 61);
       this.btnDeletePPS.TabIndex = 25;
-      this.btnDeletePPS.Text = "DELETE PRODUCT";
+      this.btnDeletePPS.Text = "DELETE PRODUCT/SUPPLIER";
       this.btnDeletePPS.UseVisualStyleBackColor = true;
       this.btnDeletePPS.Click += new System.EventHandler(this.btnDeletePPS_Click);
       // 
@@ -471,9 +438,7 @@
 
     private System.Windows.Forms.Label txtPackageDesc;
     private System.Windows.Forms.BindingNavigator packageBindingNavigator;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
     private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
     private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
     private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
     private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -482,7 +447,6 @@
     private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
     private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
     private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-    private System.Windows.Forms.ToolStripButton packageBindingNavigatorSaveItem;
     private System.Windows.Forms.TextBox txtPackageID;
     private System.Windows.Forms.TextBox txtPackageComm;
     private System.Windows.Forms.TextBox txtPackagePrice;

@@ -18,7 +18,6 @@ namespace Travel_Experts_CS
       InitializeComponent();
     }
 
-
     private void frmPackage_Load(object sender, EventArgs e)
     {
       RefreshDisplay();
@@ -59,23 +58,24 @@ namespace Travel_Experts_CS
       {
         try
         {
-          int id = getPackageID();
+          int packId = getPackageID();
           using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
           {
-            var query = (from a in dbContext.Packages_Products_Suppliers
-                         join b in dbContext.Products_Suppliers
-                            on a.ProductSupplierId equals b.ProductSupplierId
+            // Join PPS with products and suppliers to fetch their names
+            var query = (from pps in dbContext.Packages_Products_Suppliers
+                         join ps in dbContext.Products_Suppliers
+                            on pps.ProductSupplierId equals ps.ProductSupplierId
                          join prod in dbContext.Products
-                            on b.ProductId equals prod.ProductId
+                            on ps.ProductId equals prod.ProductId
                          join supp in dbContext.Suppliers
-                            on b.SupplierId equals supp.SupplierId
-                         where a.PackageId == id
+                            on ps.SupplierId equals supp.SupplierId
+                         where pps.PackageId == packId
                          select new
                          {
                            ProductName = prod.ProdName,
                            SupplierName = supp.SupName,
                            prod.ProductId,
-                           a.ProductSupplierId
+                           pps.ProductSupplierId
                          }).ToList();
             PPSDataGridView.DataSource = query;
             PPSDataGridView.Columns[2].Visible = false; // hide prodid column
@@ -108,8 +108,10 @@ namespace Travel_Experts_CS
       DisplayPackageDetails();
     }
 
+    // Delete a prod/supp combo
     private void btnDeletePPS_Click(object sender, EventArgs e)
     {
+      // prompt user to confirm deletion
       DialogResult delete = MessageBox.Show("Are you sure you want to delete this Product/Supplier Combo?", "Delete Product/Supplier Combo", MessageBoxButtons.YesNo);
       if (delete == DialogResult.Yes)
       {
@@ -119,12 +121,13 @@ namespace Travel_Experts_CS
         {
           using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
           {
+            // get prod/supplier combo
             var pps = (from p in dbContext.Packages_Products_Suppliers
                        where p.ProductSupplierId == psId
                        && p.PackageId == packageId
                        select p).Single();
 
-
+            // delete and submit
             dbContext.Packages_Products_Suppliers.DeleteOnSubmit(pps);
             dbContext.SubmitChanges();
             DisplayPackageDetails();
@@ -145,6 +148,7 @@ namespace Travel_Experts_CS
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+      // open new empty add package form
       frmAddEditPackage secondForm = new frmAddEditPackage();
       secondForm.isAdd = true;
       DialogResult result = secondForm.ShowDialog();
@@ -154,9 +158,10 @@ namespace Travel_Experts_CS
 
     private void btnEdit_Click(object sender, EventArgs e)
     {
+      // open new empty add package form with modify option
       frmAddEditPackage secondForm = new frmAddEditPackage();
       secondForm.isAdd = false;
-      secondForm.packageID = Convert.ToInt32(txtPackageID.Text);
+      secondForm.packageID = Convert.ToInt32(txtPackageID.Text); // send prod ID to second form
       DialogResult result = secondForm.ShowDialog();
       if (result == DialogResult.OK)
         RefreshDisplay();
@@ -164,7 +169,7 @@ namespace Travel_Experts_CS
 
     private void btnDelete_Click(object sender, EventArgs e)
     {
-
+      // prompt user to confirm option
       DialogResult delete = MessageBox.Show("Are you sure you want to delete this package? " +
                                             "\n\n This will delete all attached product/supplier combos in this package.",
                                             "Delete Package", MessageBoxButtons.YesNo);
@@ -175,10 +180,13 @@ namespace Travel_Experts_CS
           using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
           {
             int packId = Convert.ToInt32(txtPackageID.Text);
+
+            // query for package
             var package = (from pack in dbContext.Packages
                            where pack.PackageId == packId
                            select pack).Single();
 
+            // query for all prodsuppliers in that package
             var prodSupp = (from ps in dbContext.Packages_Products_Suppliers
                             where ps.PackageId == packId
                             select ps).ToList();
