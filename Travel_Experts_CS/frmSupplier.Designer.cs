@@ -32,6 +32,7 @@
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSupplier));
       this.supplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
       this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+      this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
       this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -44,25 +45,21 @@
       this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       this.supplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
       this.dgvSupplier = new System.Windows.Forms.DataGridView();
+      this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.btnAddSupplier = new System.Windows.Forms.Button();
       this.btnEditSupplier = new System.Windows.Forms.Button();
       this.btnDeleteSupplier = new System.Windows.Forms.Button();
       this.dgvProdOfSupplier = new System.Windows.Forms.DataGridView();
       this.btnAddProd = new System.Windows.Forms.Button();
-      this.btnEditProd = new System.Windows.Forms.Button();
       this.btnDeleteProd = new System.Windows.Forms.Button();
       this.btnExit = new System.Windows.Forms.Button();
-      this.label1 = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
-      this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.lblSupplierProdList = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).BeginInit();
       this.supplierBindingNavigator.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgvProdOfSupplier)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
       this.SuspendLayout();
       // 
       // supplierBindingNavigator
@@ -91,7 +88,7 @@
       this.supplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
       this.supplierBindingNavigator.Name = "supplierBindingNavigator";
       this.supplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-      this.supplierBindingNavigator.Size = new System.Drawing.Size(756, 25);
+      this.supplierBindingNavigator.Size = new System.Drawing.Size(898, 25);
       this.supplierBindingNavigator.TabIndex = 0;
       this.supplierBindingNavigator.Text = "bindingNavigator1";
       // 
@@ -103,6 +100,10 @@
       this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
       this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
       this.bindingNavigatorAddNewItem.Text = "Add new";
+      // 
+      // supplierBindingSource
+      // 
+      this.supplierBindingSource.DataSource = typeof(Travel_Experts_CS.Supplier);
       // 
       // bindingNavigatorCountItem
       // 
@@ -147,7 +148,6 @@
       // 
       this.bindingNavigatorPositionItem.AccessibleName = "Position";
       this.bindingNavigatorPositionItem.AutoSize = false;
-      this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
       this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
       this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
       this.bindingNavigatorPositionItem.Text = "0";
@@ -205,9 +205,23 @@
       this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
       this.dgvSupplier.SelectionChanged += new System.EventHandler(this.dgvSupplier_SelectionChanged);
       // 
+      // dataGridViewTextBoxColumn1
+      // 
+      this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
+      this.dataGridViewTextBoxColumn1.FillWeight = 80F;
+      this.dataGridViewTextBoxColumn1.HeaderText = "Supplier ID";
+      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+      // 
+      // dataGridViewTextBoxColumn2
+      // 
+      this.dataGridViewTextBoxColumn2.DataPropertyName = "SupName";
+      this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
+      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+      this.dataGridViewTextBoxColumn2.Width = 250;
+      // 
       // btnAddSupplier
       // 
-      this.btnAddSupplier.Location = new System.Drawing.Point(537, 44);
+      this.btnAddSupplier.Location = new System.Drawing.Point(537, 28);
       this.btnAddSupplier.Name = "btnAddSupplier";
       this.btnAddSupplier.Size = new System.Drawing.Size(147, 46);
       this.btnAddSupplier.TabIndex = 2;
@@ -217,7 +231,7 @@
       // 
       // btnEditSupplier
       // 
-      this.btnEditSupplier.Location = new System.Drawing.Point(537, 111);
+      this.btnEditSupplier.Location = new System.Drawing.Point(537, 104);
       this.btnEditSupplier.Name = "btnEditSupplier";
       this.btnEditSupplier.Size = new System.Drawing.Size(147, 46);
       this.btnEditSupplier.TabIndex = 3;
@@ -227,7 +241,7 @@
       // 
       // btnDeleteSupplier
       // 
-      this.btnDeleteSupplier.Location = new System.Drawing.Point(537, 176);
+      this.btnDeleteSupplier.Location = new System.Drawing.Point(537, 180);
       this.btnDeleteSupplier.Name = "btnDeleteSupplier";
       this.btnDeleteSupplier.Size = new System.Drawing.Size(147, 46);
       this.btnDeleteSupplier.TabIndex = 4;
@@ -247,25 +261,16 @@
       // 
       this.btnAddProd.Location = new System.Drawing.Point(537, 446);
       this.btnAddProd.Name = "btnAddProd";
-      this.btnAddProd.Size = new System.Drawing.Size(147, 26);
+      this.btnAddProd.Size = new System.Drawing.Size(147, 46);
       this.btnAddProd.TabIndex = 6;
       this.btnAddProd.Text = "Add Product";
       this.btnAddProd.UseVisualStyleBackColor = true;
       // 
-      // btnEditProd
-      // 
-      this.btnEditProd.Location = new System.Drawing.Point(537, 487);
-      this.btnEditProd.Name = "btnEditProd";
-      this.btnEditProd.Size = new System.Drawing.Size(147, 26);
-      this.btnEditProd.TabIndex = 7;
-      this.btnEditProd.Text = "Edit Product";
-      this.btnEditProd.UseVisualStyleBackColor = true;
-      // 
       // btnDeleteProd
       // 
-      this.btnDeleteProd.Location = new System.Drawing.Point(537, 527);
+      this.btnDeleteProd.Location = new System.Drawing.Point(537, 507);
       this.btnDeleteProd.Name = "btnDeleteProd";
-      this.btnDeleteProd.Size = new System.Drawing.Size(147, 26);
+      this.btnDeleteProd.Size = new System.Drawing.Size(147, 46);
       this.btnDeleteProd.TabIndex = 8;
       this.btnDeleteProd.Text = "Delete Product";
       this.btnDeleteProd.UseVisualStyleBackColor = true;
@@ -280,42 +285,6 @@
       this.btnExit.UseVisualStyleBackColor = true;
       this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
       // 
-      // label1
-      // 
-      this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(474, 418);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(270, 16);
-      this.label1.TabIndex = 10;
-      this.label1.Text = "Operations for Products of selected Supplier";
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(507, 9);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(200, 16);
-      this.label2.TabIndex = 11;
-      this.label2.Text = "Operations for selected Supplier";
-      // 
-      // dataGridViewTextBoxColumn1
-      // 
-      this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
-      this.dataGridViewTextBoxColumn1.FillWeight = 80F;
-      this.dataGridViewTextBoxColumn1.HeaderText = "Supplier ID";
-      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-      // 
-      // dataGridViewTextBoxColumn2
-      // 
-      this.dataGridViewTextBoxColumn2.DataPropertyName = "SupName";
-      this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
-      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-      this.dataGridViewTextBoxColumn2.Width = 250;
-      // 
-      // supplierBindingSource
-      // 
-      this.supplierBindingSource.DataSource = typeof(Travel_Experts_CS.Supplier);
-      // 
       // lblSupplierProdList
       // 
       this.lblSupplierProdList.AutoSize = true;
@@ -328,13 +297,10 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(756, 565);
+      this.ClientSize = new System.Drawing.Size(898, 565);
       this.Controls.Add(this.lblSupplierProdList);
-      this.Controls.Add(this.label2);
-      this.Controls.Add(this.label1);
       this.Controls.Add(this.btnExit);
       this.Controls.Add(this.btnDeleteProd);
-      this.Controls.Add(this.btnEditProd);
       this.Controls.Add(this.btnAddProd);
       this.Controls.Add(this.dgvProdOfSupplier);
       this.Controls.Add(this.btnDeleteSupplier);
@@ -350,9 +316,9 @@
       ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).EndInit();
       this.supplierBindingNavigator.ResumeLayout(false);
       this.supplierBindingNavigator.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgvProdOfSupplier)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -382,11 +348,8 @@
     private System.Windows.Forms.Button btnDeleteSupplier;
     private System.Windows.Forms.DataGridView dgvProdOfSupplier;
     private System.Windows.Forms.Button btnAddProd;
-    private System.Windows.Forms.Button btnEditProd;
     private System.Windows.Forms.Button btnDeleteProd;
     private System.Windows.Forms.Button btnExit;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblSupplierProdList;
   }
 }

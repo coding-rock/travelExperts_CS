@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Travel_Experts_CS
@@ -55,7 +49,7 @@ namespace Travel_Experts_CS
       }
 
       //  confirm with user before writing data to the database
-      String strConfirmation = isNewSupplier ? "Add a new Supplier: " : "Update Supplier Name to: ";
+      String strConfirmation = isNewSupplier ? "Add a new Supplier called: " : "Update Supplier Name to: ";
       strConfirmation += txtSupplierName.Text.ToUpper() + "?";
       if (MessageBox.Show(strConfirmation, "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
         return;
@@ -73,9 +67,9 @@ namespace Travel_Experts_CS
             };
             dbContext.Suppliers.InsertOnSubmit(supplier);
           }
-          else if (!isNewSupplier)  // edit existing supplier
+          else // edit existing supplier
           {
-            supplier = dbContext.Suppliers.Single(prod => prod.SupplierId ==
+            supplier = dbContext.Suppliers.Single(sup => sup.SupplierId ==
                                                     Convert.ToInt32(txtSupplierId.Text));
             supplier.SupName = txtSupplierName.Text.ToUpper();
           }
@@ -88,8 +82,6 @@ namespace Travel_Experts_CS
       }
       DialogResult = DialogResult.OK;
     }
-
-
 
   } // end of class
 } // end of namespace

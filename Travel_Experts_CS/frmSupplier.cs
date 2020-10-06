@@ -169,13 +169,13 @@ namespace Travel_Experts_CS
     // DELETE
     private void btnDeleteSupplier_Click(object sender, EventArgs e)
     {
-      DialogResult result = DialogResult.Cancel;
-
+      //DialogResult result = DialogResult.Cancel;
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int supplierID = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
 
-      DialogResult answer = MessageBox.Show("Are you sure about DELETING?", "Confirm", MessageBoxButtons.OKCancel);
-      if (answer == DialogResult.OK)
+      DialogResult delete = MessageBox.Show("Are you sure about DELETING this supplier?", 
+                                            "Delete Supplier", MessageBoxButtons.YesNo);
+      if (delete == DialogResult.Yes)
       {
         using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
         {
@@ -194,9 +194,8 @@ namespace Travel_Experts_CS
           }
         }
       }
-
-      if (result == DialogResult.OK)
-        DisplaySuppliers();
+      //if (result == DialogResult.OK)
+        //DisplaySuppliers();
     }
 
     // EXIT WINDOW
