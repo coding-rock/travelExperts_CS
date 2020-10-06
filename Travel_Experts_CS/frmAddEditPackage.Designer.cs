@@ -49,59 +49,61 @@
       // btnCancel
       // 
       this.btnCancel.Location = new System.Drawing.Point(355, 460);
-      this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(161, 76);
       this.btnCancel.TabIndex = 36;
       this.btnCancel.Text = "CANCEL";
       this.btnCancel.UseVisualStyleBackColor = true;
+      this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
       // 
       // btnSave
       // 
       this.btnSave.Location = new System.Drawing.Point(124, 460);
-      this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.btnSave.Margin = new System.Windows.Forms.Padding(4);
       this.btnSave.Name = "btnSave";
       this.btnSave.Size = new System.Drawing.Size(161, 76);
       this.btnSave.TabIndex = 35;
       this.btnSave.Text = "SAVE";
       this.btnSave.UseVisualStyleBackColor = true;
+      this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
       // 
       // dtpEnd
       // 
       this.dtpEnd.Location = new System.Drawing.Point(180, 400);
-      this.dtpEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.dtpEnd.Margin = new System.Windows.Forms.Padding(4);
       this.dtpEnd.Name = "dtpEnd";
-      this.dtpEnd.Size = new System.Drawing.Size(434, 27);
+      this.dtpEnd.Size = new System.Drawing.Size(434, 23);
       this.dtpEnd.TabIndex = 34;
       // 
       // dtpStart
       // 
       this.dtpStart.Location = new System.Drawing.Point(180, 344);
-      this.dtpStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.dtpStart.Margin = new System.Windows.Forms.Padding(4);
       this.dtpStart.Name = "dtpStart";
-      this.dtpStart.Size = new System.Drawing.Size(434, 27);
+      this.dtpStart.Size = new System.Drawing.Size(434, 23);
       this.dtpStart.TabIndex = 33;
       // 
       // txtPkgCom
       // 
       this.txtPkgCom.Location = new System.Drawing.Point(276, 292);
-      this.txtPkgCom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.txtPkgCom.Margin = new System.Windows.Forms.Padding(4);
       this.txtPkgCom.Name = "txtPkgCom";
-      this.txtPkgCom.Size = new System.Drawing.Size(124, 27);
+      this.txtPkgCom.Size = new System.Drawing.Size(124, 23);
       this.txtPkgCom.TabIndex = 32;
       // 
       // txtPkgBasePrice
       // 
       this.txtPkgBasePrice.Location = new System.Drawing.Point(276, 232);
-      this.txtPkgBasePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.txtPkgBasePrice.Margin = new System.Windows.Forms.Padding(4);
       this.txtPkgBasePrice.Name = "txtPkgBasePrice";
-      this.txtPkgBasePrice.Size = new System.Drawing.Size(124, 27);
+      this.txtPkgBasePrice.Size = new System.Drawing.Size(124, 23);
       this.txtPkgBasePrice.TabIndex = 31;
       // 
       // txtPkgDesc
       // 
       this.txtPkgDesc.Location = new System.Drawing.Point(238, 120);
-      this.txtPkgDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.txtPkgDesc.Margin = new System.Windows.Forms.Padding(4);
       this.txtPkgDesc.Multiline = true;
       this.txtPkgDesc.Name = "txtPkgDesc";
       this.txtPkgDesc.Size = new System.Drawing.Size(376, 90);
@@ -110,18 +112,18 @@
       // txtPkgName
       // 
       this.txtPkgName.Location = new System.Drawing.Point(238, 75);
-      this.txtPkgName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.txtPkgName.Margin = new System.Windows.Forms.Padding(4);
       this.txtPkgName.Name = "txtPkgName";
-      this.txtPkgName.Size = new System.Drawing.Size(376, 27);
+      this.txtPkgName.Size = new System.Drawing.Size(376, 23);
       this.txtPkgName.TabIndex = 29;
       // 
       // txtPackageID
       // 
       this.txtPackageID.Enabled = false;
       this.txtPackageID.Location = new System.Drawing.Point(238, 21);
-      this.txtPackageID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.txtPackageID.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackageID.Name = "txtPackageID";
-      this.txtPackageID.Size = new System.Drawing.Size(124, 27);
+      this.txtPackageID.Size = new System.Drawing.Size(124, 23);
       this.txtPackageID.TabIndex = 28;
       // 
       // label7
@@ -130,7 +132,7 @@
       this.label7.Location = new System.Drawing.Point(21, 400);
       this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label7.Name = "label7";
-      this.label7.Size = new System.Drawing.Size(84, 20);
+      this.label7.Size = new System.Drawing.Size(71, 17);
       this.label7.TabIndex = 27;
       this.label7.Text = "End Date:";
       // 
@@ -140,7 +142,7 @@
       this.label6.Location = new System.Drawing.Point(21, 344);
       this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(91, 20);
+      this.label6.Size = new System.Drawing.Size(76, 17);
       this.label6.TabIndex = 26;
       this.label6.Text = "Start Date:";
       // 
@@ -150,7 +152,7 @@
       this.label5.Location = new System.Drawing.Point(21, 292);
       this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(193, 20);
+      this.label5.Size = new System.Drawing.Size(160, 17);
       this.label5.TabIndex = 25;
       this.label5.Text = "Agency Commission ($):";
       // 
@@ -160,7 +162,7 @@
       this.label4.Location = new System.Drawing.Point(21, 236);
       this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(123, 20);
+      this.label4.Size = new System.Drawing.Size(102, 17);
       this.label4.TabIndex = 24;
       this.label4.Text = "Base Price ($):";
       // 
@@ -170,7 +172,7 @@
       this.label3.Location = new System.Drawing.Point(21, 124);
       this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(100, 20);
+      this.label3.Size = new System.Drawing.Size(83, 17);
       this.label3.TabIndex = 23;
       this.label3.Text = "Description:";
       // 
@@ -180,7 +182,7 @@
       this.label2.Location = new System.Drawing.Point(21, 75);
       this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(58, 20);
+      this.label2.Size = new System.Drawing.Size(49, 17);
       this.label2.TabIndex = 22;
       this.label2.Text = "Name:";
       // 
@@ -190,13 +192,13 @@
       this.label1.Location = new System.Drawing.Point(21, 21);
       this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(100, 20);
+      this.label1.Size = new System.Drawing.Size(84, 17);
       this.label1.TabIndex = 21;
       this.label1.Text = "Package ID:";
       // 
       // frmAddEditPackage
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(670, 562);
       this.Controls.Add(this.btnCancel);
@@ -216,7 +218,7 @@
       this.Controls.Add(this.label2);
       this.Controls.Add(this.label1);
       this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "frmAddEditPackage";
       this.Text = "frmAddEditPackage";
       this.Load += new System.EventHandler(this.frmAddEditPackage_Load);
