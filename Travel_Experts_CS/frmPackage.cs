@@ -110,33 +110,95 @@ namespace Travel_Experts_CS
 
     private void btnDeletePPS_Click(object sender, EventArgs e)
     {
-      int packageId = Convert.ToInt32(txtPackageID.Text);
-      int psId = (int)PPSDataGridView[3, PPSDataGridView.CurrentCell.RowIndex].Value;
-      try
+      DialogResult delete = MessageBox.Show("Are you sure you want to delete this Product/Supplier Combo?", "Delete Product/Supplier Combo", MessageBoxButtons.YesNo);
+      if (delete == DialogResult.Yes)
       {
-        using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
+        int packageId = Convert.ToInt32(txtPackageID.Text);
+        int psId = (int)PPSDataGridView[3, PPSDataGridView.CurrentCell.RowIndex].Value;
+        try
         {
-          var pps = (from p in dbContext.Packages_Products_Suppliers
-                     where p.ProductSupplierId == psId
-                     && p.PackageId == packageId
-                     select p).Single();
+          using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
+          {
+            var pps = (from p in dbContext.Packages_Products_Suppliers
+                       where p.ProductSupplierId == psId
+                       && p.PackageId == packageId
+                       select p).Single();
 
-          dbContext.Packages_Products_Suppliers.DeleteOnSubmit(pps);
-          dbContext.SubmitChanges();
-          DisplayPackageDetails();
+
+            dbContext.Packages_Products_Suppliers.DeleteOnSubmit(pps);
+            dbContext.SubmitChanges();
+            DisplayPackageDetails();
+          }
+        }
+        catch (ChangeConflictException)
+        {
+          MessageBox.Show("Another user changed or deleted the current record", "Concurrency Exception");
+          DialogResult = DialogResult.Retry;
+        }
+        catch (Exception ex)
+        {
+          MessageBox.Show("An SQL error occured:\n\n"
+                          + ex.Message, ex.GetType().ToString());
         }
       }
-      catch (ChangeConflictException)
+    }
+
+    private void btnAdd_Click(object sender, EventArgs e)
+    {
+      frmAddEditPackage secondForm = new frmAddEditPackage();
+      secondForm.isAdd = true;
+      DialogResult result = secondForm.ShowDialog();
+      if (result == DialogResult.OK)
+        RefreshDisplay();
+    }
+
+    private void btnEdit_Click(object sender, EventArgs e)
+    {
+      frmAddEditPackage secondForm = new frmAddEditPackage();
+      secondForm.isAdd = false;
+      secondForm.packageID = Convert.ToInt32(txtPackageID.Text);
+      DialogResult result = secondForm.ShowDialog();
+      if (result == DialogResult.OK)
+        RefreshDisplay();
+    }
+
+    private void btnDelete_Click(object sender, EventArgs e)
+    {
+
+      DialogResult delete = MessageBox.Show("Are you sure you want to delete this package? " +
+                                            "\n\n This will delete all attached product/supplier combos in this package.",
+                                            "Delete Package", MessageBoxButtons.YesNo);
+      if (delete == DialogResult.Yes)
       {
-        MessageBox.Show("Another user changed or deleted the current record", "Concurrency Exception");
-        DialogResult = DialogResult.Retry;
-      }
-      catch (Exception ex)
-      {
+        try
+        {
+          using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
+          {
+            int packId = Convert.ToInt32(txtPackageID.Text);
+            var package = (from pack in dbContext.Packages
+                           where pack.PackageId == packId
+                           select pack).Single();
+
+            var prodSupp = (from ps in dbContext.Packages_Products_Suppliers
+                            where ps.PackageId == packId
+                            select ps).ToList();
+
+
+
+            // delete all prod/supp combos for this package
+            foreach (var ps in prodSupp)
+              dbContext.Packages_Products_Suppliers.DeleteOnSubmit(ps);
+            dbContext.Packages.DeleteOnSubmit(package); // delete the package and submit changes
+            dbContext.SubmitChanges();
+            RefreshDisplay();
+          } 
+        }
+        catch (Exception ex)
+        {
         MessageBox.Show("An SQL error occured:\n\n"
                         + ex.Message, ex.GetType().ToString());
+        }
       }
-
     }
   }
 }

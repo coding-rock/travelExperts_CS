@@ -38,7 +38,6 @@
       System.Windows.Forms.Label pkgStartDateLabel;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPackage));
       this.txtPackageDesc = new System.Windows.Forms.Label();
-      this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.packageBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
       this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -62,6 +61,10 @@
       this.btnAddPPS = new System.Windows.Forms.Button();
       this.PPSDataGridView = new System.Windows.Forms.DataGridView();
       this.btnDeletePPS = new System.Windows.Forms.Button();
+      this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.btnAdd = new System.Windows.Forms.Button();
+      this.btnEdit = new System.Windows.Forms.Button();
+      this.btnDelete = new System.Windows.Forms.Button();
       pkgDescLabel1 = new System.Windows.Forms.Label();
       packageIdLabel = new System.Windows.Forms.Label();
       pkgAgencyCommissionLabel = new System.Windows.Forms.Label();
@@ -69,11 +72,11 @@
       pkgEndDateLabel = new System.Windows.Forms.Label();
       pkgNameLabel = new System.Windows.Forms.Label();
       pkgStartDateLabel = new System.Windows.Forms.Label();
-      ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.packageBindingNavigator)).BeginInit();
       this.packageBindingNavigator.SuspendLayout();
       this.boxPPS.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.PPSDataGridView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
       this.SuspendLayout();
       // 
       // pkgDescLabel1
@@ -154,10 +157,6 @@
       this.txtPackageDesc.Name = "txtPackageDesc";
       this.txtPackageDesc.Size = new System.Drawing.Size(241, 67);
       this.txtPackageDesc.TabIndex = 40;
-      // 
-      // packageBindingSource
-      // 
-      this.packageBindingSource.DataSource = typeof(Travel_Experts_CS.Package);
       // 
       // packageBindingNavigator
       // 
@@ -390,11 +389,51 @@
       this.btnDeletePPS.UseVisualStyleBackColor = true;
       this.btnDeletePPS.Click += new System.EventHandler(this.btnDeletePPS_Click);
       // 
+      // packageBindingSource
+      // 
+      this.packageBindingSource.DataSource = typeof(Travel_Experts_CS.Package);
+      // 
+      // btnAdd
+      // 
+      this.btnAdd.Location = new System.Drawing.Point(380, 41);
+      this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+      this.btnAdd.Name = "btnAdd";
+      this.btnAdd.Size = new System.Drawing.Size(133, 61);
+      this.btnAdd.TabIndex = 42;
+      this.btnAdd.Text = "ADD";
+      this.btnAdd.UseVisualStyleBackColor = true;
+      this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+      // 
+      // btnEdit
+      // 
+      this.btnEdit.Location = new System.Drawing.Point(380, 126);
+      this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+      this.btnEdit.Name = "btnEdit";
+      this.btnEdit.Size = new System.Drawing.Size(133, 61);
+      this.btnEdit.TabIndex = 43;
+      this.btnEdit.Text = "EDIT";
+      this.btnEdit.UseVisualStyleBackColor = true;
+      this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+      // 
+      // btnDelete
+      // 
+      this.btnDelete.Location = new System.Drawing.Point(380, 214);
+      this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+      this.btnDelete.Name = "btnDelete";
+      this.btnDelete.Size = new System.Drawing.Size(133, 61);
+      this.btnDelete.TabIndex = 44;
+      this.btnDelete.Text = "DELETE";
+      this.btnDelete.UseVisualStyleBackColor = true;
+      this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+      // 
       // frmPackage
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(551, 783);
+      this.Controls.Add(this.btnDelete);
+      this.Controls.Add(this.btnEdit);
+      this.Controls.Add(this.btnAdd);
       this.Controls.Add(pkgDescLabel1);
       this.Controls.Add(this.txtPackageDesc);
       this.Controls.Add(this.packageBindingNavigator);
@@ -417,12 +456,12 @@
       this.Text = "frmPackage";
       this.Activated += new System.EventHandler(this.frmPackage_Activated);
       this.Load += new System.EventHandler(this.frmPackage_Load);
-      ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.packageBindingNavigator)).EndInit();
       this.packageBindingNavigator.ResumeLayout(false);
       this.packageBindingNavigator.PerformLayout();
       this.boxPPS.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.PPSDataGridView)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -455,5 +494,8 @@
     private System.Windows.Forms.Button btnDeletePPS;
     private System.Windows.Forms.DataGridView PPSDataGridView;
     private System.Windows.Forms.BindingSource packageBindingSource;
+    private System.Windows.Forms.Button btnAdd;
+    private System.Windows.Forms.Button btnEdit;
+    private System.Windows.Forms.Button btnDelete;
   }
 }
