@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Travel_Experts_CS
 {
+  // note
     class Validator
     {
         public static bool IsPresent(TextBox textBox)
@@ -19,8 +20,29 @@ namespace Travel_Experts_CS
             }
             return true;
         }
+        public static bool IsMaxLength(TextBox textBox, int maxLen)
+        {
+          if ((textBox.Text).Length > maxLen)
+          {
+            MessageBox.Show(textBox.Tag + " can be at most " + maxLen.ToString() + " long", "Entry Error");
+            textBox.Focus();
+            return false;
+          }
+          return true;
+        }
 
-        public static bool IsCorrectLength(TextBox textBox, int maxLen)
+        public static bool IsMinLength(TextBox textBox, int minLen)
+        {
+          if ((textBox.Text).Length < minLen)
+          {
+            MessageBox.Show(textBox.Tag + " must be at least " + minLen.ToString() + " long", "Entry Error");
+            textBox.Focus();
+            return false;
+          }
+          return true;
+        }
+
+    public static bool IsCorrectLength(TextBox textBox, int maxLen)
         {
             if ((textBox.Text).Length > maxLen)
             {
