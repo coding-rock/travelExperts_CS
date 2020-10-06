@@ -30,32 +30,37 @@
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSupplier));
-      this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.supplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+      this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+      this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+      this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
       this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-      this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
       this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
       this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-      this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-      this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
       this.supplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-      this.supplierDataGridView = new System.Windows.Forms.DataGridView();
+      this.dgvSupplier = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+      this.btnAddSupplier = new System.Windows.Forms.Button();
+      this.btnEditSupplier = new System.Windows.Forms.Button();
+      this.btnDeleteSupplier = new System.Windows.Forms.Button();
+      this.dgvProdOfSupplier = new System.Windows.Forms.DataGridView();
+      this.btnAddProd = new System.Windows.Forms.Button();
+      this.btnDeleteProd = new System.Windows.Forms.Button();
+      this.btnExit = new System.Windows.Forms.Button();
+      this.lblSupplierProdList = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).BeginInit();
       this.supplierBindingNavigator.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgvProdOfSupplier)).BeginInit();
       this.SuspendLayout();
-      // 
-      // supplierBindingSource
-      // 
-      this.supplierBindingSource.DataSource = typeof(Travel_Experts_CS.Supplier);
       // 
       // supplierBindingNavigator
       // 
@@ -83,9 +88,38 @@
       this.supplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
       this.supplierBindingNavigator.Name = "supplierBindingNavigator";
       this.supplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-      this.supplierBindingNavigator.Size = new System.Drawing.Size(456, 25);
+      this.supplierBindingNavigator.Size = new System.Drawing.Size(898, 25);
       this.supplierBindingNavigator.TabIndex = 0;
       this.supplierBindingNavigator.Text = "bindingNavigator1";
+      // 
+      // bindingNavigatorAddNewItem
+      // 
+      this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+      this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+      this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+      this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+      this.bindingNavigatorAddNewItem.Text = "Add new";
+      // 
+      // supplierBindingSource
+      // 
+      this.supplierBindingSource.DataSource = typeof(Travel_Experts_CS.Supplier);
+      // 
+      // bindingNavigatorCountItem
+      // 
+      this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+      this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+      this.bindingNavigatorCountItem.Text = "of {0}";
+      this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+      // 
+      // bindingNavigatorDeleteItem
+      // 
+      this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+      this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+      this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+      this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+      this.bindingNavigatorDeleteItem.Text = "Delete";
       // 
       // bindingNavigatorMoveFirstItem
       // 
@@ -119,16 +153,9 @@
       this.bindingNavigatorPositionItem.Text = "0";
       this.bindingNavigatorPositionItem.ToolTipText = "Current position";
       // 
-      // bindingNavigatorCountItem
-      // 
-      this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-      this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-      this.bindingNavigatorCountItem.Text = "of {0}";
-      this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-      // 
       // bindingNavigatorSeparator1
       // 
-      this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+      this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
       this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
       // 
       // bindingNavigatorMoveNextItem
@@ -151,26 +178,8 @@
       // 
       // bindingNavigatorSeparator2
       // 
-      this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+      this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
       this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-      // 
-      // bindingNavigatorAddNewItem
-      // 
-      this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-      this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-      this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-      this.bindingNavigatorAddNewItem.Text = "Add new";
-      // 
-      // bindingNavigatorDeleteItem
-      // 
-      this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-      this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-      this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-      this.bindingNavigatorDeleteItem.Text = "Delete";
       // 
       // supplierBindingNavigatorSaveItem
       // 
@@ -181,48 +190,135 @@
       this.supplierBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
       this.supplierBindingNavigatorSaveItem.Text = "Save Data";
       // 
-      // supplierDataGridView
+      // dgvSupplier
       // 
-      this.supplierDataGridView.AutoGenerateColumns = false;
-      this.supplierDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.supplierDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+      this.dgvSupplier.AutoGenerateColumns = false;
+      this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgvSupplier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-      this.supplierDataGridView.DataSource = this.supplierBindingSource;
-      this.supplierDataGridView.Location = new System.Drawing.Point(12, 28);
-      this.supplierDataGridView.Name = "supplierDataGridView";
-      this.supplierDataGridView.Size = new System.Drawing.Size(300, 220);
-      this.supplierDataGridView.TabIndex = 1;
+      this.dgvSupplier.DataSource = this.supplierBindingSource;
+      this.dgvSupplier.Location = new System.Drawing.Point(12, 28);
+      this.dgvSupplier.Name = "dgvSupplier";
+      this.dgvSupplier.Size = new System.Drawing.Size(489, 378);
+      this.dgvSupplier.TabIndex = 1;
+      this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
+      this.dgvSupplier.SelectionChanged += new System.EventHandler(this.dgvSupplier_SelectionChanged);
       // 
       // dataGridViewTextBoxColumn1
       // 
       this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
-      this.dataGridViewTextBoxColumn1.HeaderText = "SupplierId";
+      this.dataGridViewTextBoxColumn1.FillWeight = 80F;
+      this.dataGridViewTextBoxColumn1.HeaderText = "Supplier ID";
       this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
       // 
       // dataGridViewTextBoxColumn2
       // 
       this.dataGridViewTextBoxColumn2.DataPropertyName = "SupName";
-      this.dataGridViewTextBoxColumn2.HeaderText = "SupName";
+      this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
       this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+      this.dataGridViewTextBoxColumn2.Width = 250;
+      // 
+      // btnAddSupplier
+      // 
+      this.btnAddSupplier.Location = new System.Drawing.Point(537, 28);
+      this.btnAddSupplier.Name = "btnAddSupplier";
+      this.btnAddSupplier.Size = new System.Drawing.Size(147, 46);
+      this.btnAddSupplier.TabIndex = 2;
+      this.btnAddSupplier.Text = "Add Supplier";
+      this.btnAddSupplier.UseVisualStyleBackColor = true;
+      this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
+      // 
+      // btnEditSupplier
+      // 
+      this.btnEditSupplier.Location = new System.Drawing.Point(537, 104);
+      this.btnEditSupplier.Name = "btnEditSupplier";
+      this.btnEditSupplier.Size = new System.Drawing.Size(147, 46);
+      this.btnEditSupplier.TabIndex = 3;
+      this.btnEditSupplier.Text = "Edit Supplier";
+      this.btnEditSupplier.UseVisualStyleBackColor = true;
+      this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
+      // 
+      // btnDeleteSupplier
+      // 
+      this.btnDeleteSupplier.Location = new System.Drawing.Point(537, 180);
+      this.btnDeleteSupplier.Name = "btnDeleteSupplier";
+      this.btnDeleteSupplier.Size = new System.Drawing.Size(147, 46);
+      this.btnDeleteSupplier.TabIndex = 4;
+      this.btnDeleteSupplier.Text = "Delete Supplier";
+      this.btnDeleteSupplier.UseVisualStyleBackColor = true;
+      this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteSupplier_Click);
+      // 
+      // dgvProdOfSupplier
+      // 
+      this.dgvProdOfSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgvProdOfSupplier.Location = new System.Drawing.Point(12, 446);
+      this.dgvProdOfSupplier.Name = "dgvProdOfSupplier";
+      this.dgvProdOfSupplier.Size = new System.Drawing.Size(489, 107);
+      this.dgvProdOfSupplier.TabIndex = 5;
+      // 
+      // btnAddProd
+      // 
+      this.btnAddProd.Location = new System.Drawing.Point(537, 446);
+      this.btnAddProd.Name = "btnAddProd";
+      this.btnAddProd.Size = new System.Drawing.Size(147, 46);
+      this.btnAddProd.TabIndex = 6;
+      this.btnAddProd.Text = "Add Product";
+      this.btnAddProd.UseVisualStyleBackColor = true;
+      // 
+      // btnDeleteProd
+      // 
+      this.btnDeleteProd.Location = new System.Drawing.Point(537, 507);
+      this.btnDeleteProd.Name = "btnDeleteProd";
+      this.btnDeleteProd.Size = new System.Drawing.Size(147, 46);
+      this.btnDeleteProd.TabIndex = 8;
+      this.btnDeleteProd.Text = "Delete Product";
+      this.btnDeleteProd.UseVisualStyleBackColor = true;
+      // 
+      // btnExit
+      // 
+      this.btnExit.Location = new System.Drawing.Point(537, 360);
+      this.btnExit.Name = "btnExit";
+      this.btnExit.Size = new System.Drawing.Size(147, 46);
+      this.btnExit.TabIndex = 9;
+      this.btnExit.Text = "&Exit Window";
+      this.btnExit.UseVisualStyleBackColor = true;
+      this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+      // 
+      // lblSupplierProdList
+      // 
+      this.lblSupplierProdList.AutoSize = true;
+      this.lblSupplierProdList.Location = new System.Drawing.Point(12, 418);
+      this.lblSupplierProdList.Name = "lblSupplierProdList";
+      this.lblSupplierProdList.Size = new System.Drawing.Size(0, 16);
+      this.lblSupplierProdList.TabIndex = 31;
       // 
       // frmSupplier
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(456, 337);
-      this.Controls.Add(this.supplierDataGridView);
+      this.ClientSize = new System.Drawing.Size(898, 565);
+      this.Controls.Add(this.lblSupplierProdList);
+      this.Controls.Add(this.btnExit);
+      this.Controls.Add(this.btnDeleteProd);
+      this.Controls.Add(this.btnAddProd);
+      this.Controls.Add(this.dgvProdOfSupplier);
+      this.Controls.Add(this.btnDeleteSupplier);
+      this.Controls.Add(this.btnEditSupplier);
+      this.Controls.Add(this.btnAddSupplier);
+      this.Controls.Add(this.dgvSupplier);
       this.Controls.Add(this.supplierBindingNavigator);
       this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "frmSupplier";
       this.Text = "frmSupplier";
       this.Load += new System.EventHandler(this.frmSupplier_Load);
-      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).EndInit();
       this.supplierBindingNavigator.ResumeLayout(false);
       this.supplierBindingNavigator.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgvProdOfSupplier)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -244,8 +340,16 @@
     private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
     private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
     private System.Windows.Forms.ToolStripButton supplierBindingNavigatorSaveItem;
-    private System.Windows.Forms.DataGridView supplierDataGridView;
+    private System.Windows.Forms.DataGridView dgvSupplier;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private System.Windows.Forms.Button btnAddSupplier;
+    private System.Windows.Forms.Button btnEditSupplier;
+    private System.Windows.Forms.Button btnDeleteSupplier;
+    private System.Windows.Forms.DataGridView dgvProdOfSupplier;
+    private System.Windows.Forms.Button btnAddProd;
+    private System.Windows.Forms.Button btnDeleteProd;
+    private System.Windows.Forms.Button btnExit;
+    private System.Windows.Forms.Label lblSupplierProdList;
   }
 }
