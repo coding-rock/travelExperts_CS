@@ -142,12 +142,6 @@ namespace Travel_Experts_CS
         "Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
         return;
 
-      //  confirmation with user, return if user choose "No"
-      if (MessageBox.Show("Are you sure the company " +
-        strSupplierName + " does not provide the " + strProductName + " service any more?",
-        "Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
-        return;
-
       //  Delete the record from database
       try
       {
