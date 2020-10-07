@@ -170,6 +170,9 @@
       this.cbAddProd.Name = "cbAddProd";
       this.cbAddProd.Size = new System.Drawing.Size(121, 24);
       this.cbAddProd.TabIndex = 32;
+      this.cbAddProd.Tag = "Products";
+      this.cbAddProd.ValueMember = "ProductId";
+      this.cbAddProd.SelectedIndexChanged += new System.EventHandler(this.cbAddProd_SelectedIndexChanged);
       // 
       // productBindingSource
       // 
@@ -184,6 +187,8 @@
       this.cbDeleteProd.Name = "cbDeleteProd";
       this.cbDeleteProd.Size = new System.Drawing.Size(121, 24);
       this.cbDeleteProd.TabIndex = 33;
+      this.cbDeleteProd.Tag = "Products";
+      this.cbDeleteProd.ValueMember = "ProductId";
       this.cbDeleteProd.SelectedIndexChanged += new System.EventHandler(this.cbDeleteProd_SelectedIndexChanged);
       // 
       // productBindingSource1
