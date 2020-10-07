@@ -142,6 +142,12 @@ namespace Travel_Experts_CS
         "Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
         return;
 
+      //  confirmation with user, return if user choose "No"
+      if (MessageBox.Show("Are you sure the company " +
+        strSupplierName + " does not provide the " + strProductName + " service any more?",
+        "Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
+        return;
+
       //  Delete the record from database
       try
       {
@@ -225,7 +231,7 @@ namespace Travel_Experts_CS
         DisplayProducts();
     }
 
-    //  display or refresh the product list
+    //  display and refresh the product list
     private void DisplayProducts()
     {
       //  Set the data source for the product data grid view
@@ -271,9 +277,13 @@ namespace Travel_Experts_CS
       }
 
       //  get the current product from the database
-      Product objCurrentProduct = (from prod in dbContext.Products
-                                   where prod.ProductId == nProductID
-                                   select prod).SingleOrDefault();
+      Product objCurrentProduct = null;
+      using (TravelExpertDataDataContext dbContext1 = new TravelExpertDataDataContext())
+      {
+        objCurrentProduct = (from prod in dbContext1.Products
+                                     where prod.ProductId == nProductID
+                                     select prod).SingleOrDefault();
+      }
 
       //  if the current product does not exist, refresh the product list and return
       if (objCurrentProduct == null)
