@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmSupplierAddEditSup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplierAddEditSup.Designer.cs">
+      <DependentUpon>frmSupplierAddEditSup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddEditPackage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplierAddEditSup.resx">
+      <DependentUpon>frmSupplierAddEditSup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
