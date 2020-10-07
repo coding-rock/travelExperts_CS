@@ -272,13 +272,15 @@ namespace Travel_Experts_CS
       // get the current product ID, Name and supplier ID, Name 
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int currentSupId = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
-      string currentSupName = (dgvSupplier["dataGridViewTextBoxColumn2", rowNum].Value).ToString();
+      //string currentSupName = (dgvSupplier["dataGridViewTextBoxColumn2", rowNum].Value).ToString();
+      string currentSupName = GetSupplierName(currentSupId);
+
+      int currentProdId = Convert.ToInt32(cbAddProd.SelectedValue);
 
       // Need to obtain current product ID form comboBox
-
-      rowNum = Convert.ToInt32(dgvProdOfSupplier.CurrentCell.RowIndex);
-      int currentProdId = Convert.ToInt32(dgvProdOfSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
-      string currentProdName = dgvProdOfSupplier[2, rowNum].Value.ToString();
+      //rowNum = Convert.ToInt32(dgvProdOfSupplier.CurrentCell.RowIndex);
+      //int currentProdId = Convert.ToInt32(dgvProdOfSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
+      //string currentProdName = dgvProdOfSupplier[2, rowNum].Value.ToString();
 
       // check if the current supplier already has current product in products_suppliers table
       using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
