@@ -19,7 +19,7 @@ namespace Travel_Experts_CS
       if (isNewSupplier) // user clicked on Add button
       {
         this.Text = "Add a new supplier";
-        //txtSupplierId.Text = "-1";     // (-1 for adding new)
+        txtSupplierId.Text = "-1";     // (-1 for adding new)
       }
       else // user clicked on Edit button
       {
@@ -39,48 +39,45 @@ namespace Travel_Experts_CS
 
     private void btnSave_Click(object sender, EventArgs e)
     {
-      // supplier name field is not empty
-      // PREVENT A NAME WITH SPACE ONLY
-      // SupplierName must be UpperCased
-      if (txtSupplierName.Text == "")
+      if (
+          Validator.IsPresent(txtSupplierName) &&
+          Validator.IsMaxLength(txtSupplierName, 200)
+         )
       {
-        MessageBox.Show("The Supplier Name is required!", "Name is missing");
-        return;
-      }
-
-      //  confirm with user before writing data to the database
-      String strConfirmation = isNewSupplier ? "Add a new Supplier called: " : "Update Supplier Name to: ";
-      strConfirmation += txtSupplierName.Text.ToUpper() + "?";
-      if (MessageBox.Show(strConfirmation, "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-        return;
-      //  write data to the database
-      try
-      {
-        using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
+        //  confirm with user before writing data to the database
+        String strConfirmation = isNewSupplier ? "Add a new Supplier called: " : "Update Supplier Name to: ";
+        strConfirmation += txtSupplierName.Text.ToUpper() + "?";
+        if (MessageBox.Show(strConfirmation, "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+          return;
+        //  write data to the database
+        try
         {
-          Supplier supplier = null;
-          if (isNewSupplier) // add a new supplier
+          using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
           {
-            supplier = new Supplier
+            Supplier supplier = null;
+            if (isNewSupplier) // add a new supplier
             {
-              SupName = txtSupplierName.Text.ToUpper()
-            };
-            dbContext.Suppliers.InsertOnSubmit(supplier);
+              supplier = new Supplier
+              {
+                SupName = txtSupplierName.Text.ToUpper()
+              };
+              dbContext.Suppliers.InsertOnSubmit(supplier);
+            }
+            else // edit existing supplier
+            {
+              supplier = dbContext.Suppliers.Single(sup => sup.SupplierId ==
+                                                      Convert.ToInt32(txtSupplierId.Text));
+              supplier.SupName = txtSupplierName.Text.ToUpper();
+            }
+            dbContext.SubmitChanges();  //  save the changes to database
           }
-          else // edit existing supplier
-          {
-            supplier = dbContext.Suppliers.Single(sup => sup.SupplierId ==
-                                                    Convert.ToInt32(txtSupplierId.Text));
-            supplier.SupName = txtSupplierName.Text.ToUpper();
-          }
-          dbContext.SubmitChanges();  //  save the changes to database
         }
+        catch (Exception ex)
+        {
+          MessageBox.Show("Some error occurred while writing data:\n" + ex.Message, ex.GetType().ToString());
+        }
+        DialogResult = DialogResult.OK;
       }
-      catch (Exception ex)
-      {
-        MessageBox.Show("Some error occurred while writing data:\n" + ex.Message, ex.GetType().ToString());
-      }
-      DialogResult = DialogResult.OK;
     }
 
   } // end of class

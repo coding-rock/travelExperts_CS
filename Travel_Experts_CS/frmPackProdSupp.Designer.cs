@@ -51,7 +51,7 @@
       // 
       this.txtPackageName.Enabled = false;
       this.txtPackageName.Location = new System.Drawing.Point(116, 42);
-      this.txtPackageName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.txtPackageName.Margin = new System.Windows.Forms.Padding(2);
       this.txtPackageName.Name = "txtPackageName";
       this.txtPackageName.Size = new System.Drawing.Size(146, 20);
       this.txtPackageName.TabIndex = 41;
@@ -60,7 +60,7 @@
       // 
       this.txtPackageID.Enabled = false;
       this.txtPackageID.Location = new System.Drawing.Point(18, 42);
-      this.txtPackageID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.txtPackageID.Margin = new System.Windows.Forms.Padding(2);
       this.txtPackageID.Name = "txtPackageID";
       this.txtPackageID.Size = new System.Drawing.Size(76, 20);
       this.txtPackageID.TabIndex = 40;
@@ -108,7 +108,7 @@
       // btnCancel
       // 
       this.btnCancel.Location = new System.Drawing.Point(164, 195);
-      this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(97, 50);
       this.btnCancel.TabIndex = 35;
@@ -119,7 +119,7 @@
       // btnSave
       // 
       this.btnSave.Location = new System.Drawing.Point(44, 195);
-      this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.btnSave.Margin = new System.Windows.Forms.Padding(2);
       this.btnSave.Name = "btnSave";
       this.btnSave.Size = new System.Drawing.Size(97, 50);
       this.btnSave.TabIndex = 34;
@@ -156,6 +156,7 @@
       this.cbSuppliers.TabIndex = 31;
       this.cbSuppliers.Tag = "Suppliers";
       this.cbSuppliers.ValueMember = "SupplierId";
+      //this.cbSuppliers.SelectedIndexChanged += new System.EventHandler(this.cbSuppliers_SelectedIndexChanged);
       // 
       // supplierBindingSource
       // 
@@ -195,7 +196,7 @@
       this.Controls.Add(this.label3);
       this.Controls.Add(this.cbSuppliers);
       this.Controls.Add(this.cbProducts);
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.Margin = new System.Windows.Forms.Padding(2);
       this.Name = "frmPackProdSupp";
       this.Text = "frmPackProdSupp";
       this.Load += new System.EventHandler(this.frmPackProdSupp_Load);

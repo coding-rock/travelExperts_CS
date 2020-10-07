@@ -65,6 +65,7 @@
       this.txtSupplierId.ReadOnly = true;
       this.txtSupplierId.Size = new System.Drawing.Size(185, 20);
       this.txtSupplierId.TabIndex = 8;
+      this.txtSupplierId.Tag = "Supplier ID";
       // 
       // txtSupplierName
       // 
@@ -72,6 +73,7 @@
       this.txtSupplierName.Name = "txtSupplierName";
       this.txtSupplierName.Size = new System.Drawing.Size(185, 20);
       this.txtSupplierName.TabIndex = 9;
+      this.txtSupplierName.Tag = "Supplier Name";
       // 
       // btnSave
       // 
