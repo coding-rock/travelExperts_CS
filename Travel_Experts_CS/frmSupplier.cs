@@ -201,7 +201,7 @@ namespace Travel_Experts_CS
     {
       DialogResult result = DialogResult.Cancel;
 
-      frmSupplierAddEditSup frmAddSup = new frmSupplierAddEditSup();
+      frmAddEditSupplier frmAddSup = new frmAddEditSupplier();
       frmAddSup.isNewSupplier = true;
       result = frmAddSup.ShowDialog();
 
@@ -214,7 +214,7 @@ namespace Travel_Experts_CS
     {
       DialogResult result = DialogResult.Cancel;
 
-      frmSupplierAddEditSup frmEditSup = new frmSupplierAddEditSup();
+      frmAddEditSupplier frmEditSup = new frmAddEditSupplier();
       frmEditSup.isNewSupplier = false;
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int suppID = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);

@@ -92,9 +92,9 @@
       this.label2.AutoSize = true;
       this.label2.Location = new System.Drawing.Point(41, 56);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(219, 16);
+      this.label2.Size = new System.Drawing.Size(244, 16);
       this.label2.TabIndex = 5;
-      this.label2.Text = "Database management application";
+      this.label2.Text = "The database management application";
       // 
       // frmHome
       // 

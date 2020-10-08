@@ -1,6 +1,6 @@
 ﻿namespace Travel_Experts_CS
 {
-  partial class frmSupplierAddEditSup
+  partial class frmAddEditSupplier
   {
     /// <summary>
     /// Required designer variable.
@@ -59,10 +59,8 @@
       // 
       // txtSupplierId
       // 
-      this.txtSupplierId.Enabled = false;
       this.txtSupplierId.Location = new System.Drawing.Point(132, 39);
       this.txtSupplierId.Name = "txtSupplierId";
-      this.txtSupplierId.ReadOnly = true;
       this.txtSupplierId.Size = new System.Drawing.Size(185, 20);
       this.txtSupplierId.TabIndex = 8;
       this.txtSupplierId.Tag = "Supplier ID";
@@ -107,7 +105,7 @@
       this.label1.TabIndex = 12;
       this.label1.Text = "Add / Edit Supplier";
       // 
-      // frmSupplierAddEditSup
+      // frmAddEditSupplier
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,7 +117,7 @@
       this.Controls.Add(this.txtSupplierId);
       this.Controls.Add(this.lblSupplierName);
       this.Controls.Add(this.lblSupplierId);
-      this.Name = "frmSupplierAddEditSup";
+      this.Name = "frmAddEditSupplier";
       this.Text = "Form1";
       this.Load += new System.EventHandler(this.frmSupplierAddEditSup_Load);
       this.ResumeLayout(false);

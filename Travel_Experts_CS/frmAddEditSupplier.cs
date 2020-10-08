@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace Travel_Experts_CS
 {
-  public partial class frmSupplierAddEditSup : Form
+  public partial class frmAddEditSupplier : Form
   {
     public bool isNewSupplier = false;  // False -> Edit, True -> Add; variable set in frmSupplier button click
     public Supplier currentSupplier;    // keep track of current supplier
 
-    public frmSupplierAddEditSup()
+    public frmAddEditSupplier()
     {
       InitializeComponent();
     }
@@ -18,12 +18,12 @@ namespace Travel_Experts_CS
     {
       if (isNewSupplier) // user clicked on Add button
       {
-        this.Text = "Add a new supplier";
-        txtSupplierId.Text = "-1";     // (-1 for adding new)
+        this.Text = "Add a new Supplier";
+        //txtSupplierId.Text = "-1";     // (-1 for adding new)
       }
       else // user clicked on Edit button
       {
-        this.Text = "Edit existing supplier";
+        this.Text = "Edit an existing Supplier";
         txtSupplierId.Text = currentSupplier.SupplierId.ToString();
         txtSupplierName.Text = currentSupplier.SupName;
       }
@@ -40,6 +40,10 @@ namespace Travel_Experts_CS
     private void btnSave_Click(object sender, EventArgs e)
     {
       if (
+          Validator.IsPresent(txtSupplierId) &&
+          Validator.IsInt32(txtSupplierId) &&
+          Validator.IsMinLength(txtSupplierId, 2) &&
+          Validator.IsCorrectLength(txtSupplierId, 5) &&
           Validator.IsPresent(txtSupplierName) &&
           Validator.IsMaxLength(txtSupplierName, 200)
          )
@@ -57,16 +61,31 @@ namespace Travel_Experts_CS
             Supplier supplier = null;
             if (isNewSupplier) // add a new supplier
             {
-              supplier = new Supplier
+              string addSuppName = txtSupplierName.Text.ToUpper();
+              txtSupplierId.Enabled = true;
+              // check for duplicate
+              var checkForDuplicate = dbContext.Suppliers.SingleOrDefault
+                                      (sup => sup.SupName == addSuppName);
+              if (checkForDuplicate != null) // tempSuppName already exist in DB
               {
-                SupName = txtSupplierName.Text.ToUpper()
-              };
-              dbContext.Suppliers.InsertOnSubmit(supplier);
+                MessageBox.Show(addSuppName + " already exists in database", "Duplicated Data");
+                return;
+              }
+              else
+              {
+                supplier = new Supplier
+                {
+                  SupplierId = Convert.ToInt32(txtSupplierId.Text),
+                  SupName = txtSupplierName.Text.ToUpper()
+                };
+                dbContext.Suppliers.InsertOnSubmit(supplier);
+              }
             }
-            else // edit existing supplier
+            else // edit supplier (isNewSupplier = false)
             {
               supplier = dbContext.Suppliers.Single(sup => sup.SupplierId ==
                                                       Convert.ToInt32(txtSupplierId.Text));
+              txtSupplierId.Enabled = false;
               supplier.SupName = txtSupplierName.Text.ToUpper();
             }
             dbContext.SubmitChanges();  //  save the changes to database
