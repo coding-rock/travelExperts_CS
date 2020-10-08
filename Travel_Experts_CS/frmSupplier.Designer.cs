@@ -91,7 +91,7 @@
       this.btnAddSupplier.Name = "btnAddSupplier";
       this.btnAddSupplier.Size = new System.Drawing.Size(121, 46);
       this.btnAddSupplier.TabIndex = 2;
-      this.btnAddSupplier.Text = "Add Supplier";
+      this.btnAddSupplier.Text = "&New Supplier";
       this.btnAddSupplier.UseVisualStyleBackColor = true;
       this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
       // 
@@ -149,7 +149,7 @@
       this.btnExit.Name = "btnExit";
       this.btnExit.Size = new System.Drawing.Size(123, 46);
       this.btnExit.TabIndex = 9;
-      this.btnExit.Text = "&Exit Window";
+      this.btnExit.Text = "E&xit Window";
       this.btnExit.UseVisualStyleBackColor = true;
       this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
       // 

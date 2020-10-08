@@ -101,10 +101,11 @@ namespace Travel_Experts_CS
             MessageBox.Show(ex.Message, ex.GetType().ToString());
           }
         }
-        else // Validation fail
-        {
-          DialogResult = DialogResult.Cancel;
-        }
+        //else // Validation fail
+        //{
+        //  DialogResult = DialogResult.Cancel;
+        //}
+        // Commented out for better UX when validation fails (stays in add page)
       }
       else // if modify
       {
