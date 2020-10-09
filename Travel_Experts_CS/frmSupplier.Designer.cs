@@ -101,7 +101,7 @@
       this.btnEditSupplier.Name = "btnEditSupplier";
       this.btnEditSupplier.Size = new System.Drawing.Size(123, 46);
       this.btnEditSupplier.TabIndex = 3;
-      this.btnEditSupplier.Text = "Edit Supplier";
+      this.btnEditSupplier.Text = "&Edit Supplier";
       this.btnEditSupplier.UseVisualStyleBackColor = true;
       this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
       // 
@@ -111,7 +111,7 @@
       this.btnDeleteSupplier.Name = "btnDeleteSupplier";
       this.btnDeleteSupplier.Size = new System.Drawing.Size(123, 46);
       this.btnDeleteSupplier.TabIndex = 4;
-      this.btnDeleteSupplier.Text = "Delete Supplier";
+      this.btnDeleteSupplier.Text = "&Delete Supplier";
       this.btnDeleteSupplier.UseVisualStyleBackColor = true;
       this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteSupplier_Click);
       // 
@@ -129,7 +129,7 @@
       this.btnAddProd.Name = "btnAddProd";
       this.btnAddProd.Size = new System.Drawing.Size(120, 32);
       this.btnAddProd.TabIndex = 6;
-      this.btnAddProd.Text = "Add Product";
+      this.btnAddProd.Text = "&Add Product";
       this.btnAddProd.UseVisualStyleBackColor = true;
       this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
       // 
@@ -139,7 +139,7 @@
       this.btnDeleteProd.Name = "btnDeleteProd";
       this.btnDeleteProd.Size = new System.Drawing.Size(123, 32);
       this.btnDeleteProd.TabIndex = 8;
-      this.btnDeleteProd.Text = "Delete Product";
+      this.btnDeleteProd.Text = "&Remove Product";
       this.btnDeleteProd.UseVisualStyleBackColor = true;
       this.btnDeleteProd.Click += new System.EventHandler(this.btnDeleteProd_Click);
       // 
