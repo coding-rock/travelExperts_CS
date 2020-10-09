@@ -236,7 +236,7 @@ namespace Travel_Experts_CS
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int supplierID = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
 
-      DialogResult delete = MessageBox.Show("Are you sure about DELETING this supplier?", 
+      DialogResult delete = MessageBox.Show("Are you sure about DELETING this Supplier?", 
                                             "Delete Supplier", MessageBoxButtons.YesNo);
       if (delete == DialogResult.No)
         return;
@@ -253,7 +253,7 @@ namespace Travel_Experts_CS
         //  if service products exists for supplier, give a warning message and return
         if (currentProducts.Count > 0)
         {
-          MessageBox.Show("Please remove all service products from supplier before deleting");
+          MessageBox.Show("Please remove all service Products from Supplier before deleting","Delete Warning");
           return;
         }
       }
@@ -313,7 +313,7 @@ namespace Travel_Experts_CS
         //  if the record in the database already, refresh the 2 supplier list and return
         if (CheckIfExists != null)
         {
-          MessageBox.Show("The Supplier has this product already, please check it again!");
+          MessageBox.Show("The Supplier has this Product already, please check it again!");
           RefreshPordOfSuppAndLists(currentSupId);
           return;
         }
@@ -354,9 +354,9 @@ namespace Travel_Experts_CS
       string currentProdName = (cbAddProd.SelectedItem).ToString();
 
       //  confirmation with user, return if user choose "No"
-      if (MessageBox.Show("Are you sure the vendor " +
-        currentSupName + " does not provide the this service any more?",
-        "Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
+      if (MessageBox.Show("Are you sure " +
+        currentSupName + " does not provide this services any more?",
+        "Remove Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
         return;
 
       var ProdSuppID = 0;

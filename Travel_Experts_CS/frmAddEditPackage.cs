@@ -175,7 +175,7 @@ namespace Travel_Experts_CS
     {
       if (endDate.Value < dtpStart.Value)
       {
-        MessageBox.Show("End Date must be the same or younger than Start Date", "Entry Error");
+        MessageBox.Show("End Date must be on or after the Start Date", "Entry Error");
         endDate.Focus();
         return false;
       }

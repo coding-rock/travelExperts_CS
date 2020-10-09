@@ -24,6 +24,7 @@ namespace Travel_Experts_CS
       else // user clicked on Edit button
       {
         this.Text = "Edit an existing Supplier";
+        txtSupplierId.Enabled = false;
         txtSupplierId.Text = currentSupplier.SupplierId.ToString();
         txtSupplierName.Text = currentSupplier.SupName;
       }
