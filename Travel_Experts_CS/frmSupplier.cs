@@ -51,12 +51,16 @@ namespace Travel_Experts_CS
       RefreshPordOfSuppAndLists(currentSupID);
     }
 
+    private void cbAddProd_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      //DisplayAddProductList(suppID);
+    }
+
     private void cbDeleteProd_SelectedIndexChanged(object sender, EventArgs e)
     {
-      // obtain selected product ID from combo box
-      //Object selectedItem = cbDeleteProd.SelectedItem;
-      //MessageBox.Show("Selected Item Text: " + selectedItem.ToString() );
+      // DisplayDeleteProductList(suppID);
     }
+
 
     /***********************/
     /* Methods / Functions */
@@ -197,7 +201,7 @@ namespace Travel_Experts_CS
     {
       DialogResult result = DialogResult.Cancel;
 
-      frmSupplierAddEditSup frmAddSup = new frmSupplierAddEditSup();
+      frmAddEditSupplier frmAddSup = new frmAddEditSupplier();
       frmAddSup.isNewSupplier = true;
       result = frmAddSup.ShowDialog();
 
@@ -210,7 +214,7 @@ namespace Travel_Experts_CS
     {
       DialogResult result = DialogResult.Cancel;
 
-      frmSupplierAddEditSup frmEditSup = new frmSupplierAddEditSup();
+      frmAddEditSupplier frmEditSup = new frmAddEditSupplier();
       frmEditSup.isNewSupplier = false;
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int suppID = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
@@ -229,14 +233,35 @@ namespace Travel_Experts_CS
     // DELETE
     private void btnDeleteSupplier_Click(object sender, EventArgs e)
     {
-      //DialogResult result = DialogResult.Cancel;
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int supplierID = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
 
       DialogResult delete = MessageBox.Show("Are you sure about DELETING this supplier?", 
                                             "Delete Supplier", MessageBoxButtons.YesNo);
+      if (delete == DialogResult.No)
+        return;
+
+      using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
+      {
+        //  Check if supplier still provides service products.
+        var currentProducts = (from ps in dbContext.Products_Suppliers
+                            join p in dbContext.Products
+                            on ps.ProductId equals p.ProductId
+                            where ps.SupplierId == supplierID
+                               select p.ProdName).ToList();
+
+        //  if service products exists for supplier, give a warning message and return
+        if (currentProducts.Count > 0)
+        {
+          MessageBox.Show("Please remove all service products from supplier before deleting");
+          return;
+        }
+      }
+
       if (delete == DialogResult.Yes)
       {
+
+
         using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
         {
           try
@@ -254,7 +279,7 @@ namespace Travel_Experts_CS
           }
         }
       }
-      if (delete == DialogResult.Yes)
+      
         DisplaySuppliers();
     }
 
@@ -273,13 +298,10 @@ namespace Travel_Experts_CS
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int currentSupId = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
       string currentSupName = (dgvSupplier["dataGridViewTextBoxColumn2", rowNum].Value).ToString();
+      //string currentSupName = GetSupplierName(currentSupId);
 
-      // Need to obtain current product ID form comboBox
-      int currentProdId = (int)cbAddProd.SelectedValue;
-
-      //rowNum = Convert.ToInt32(dgvProdOfSupplier.CurrentCell.RowIndex);
-      //int currentProdId = Convert.ToInt32(dgvProdOfSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
-      //string currentProdName = dgvProdOfSupplier[2, rowNum].Value.ToString();
+      // obtain current product ID form comboBox
+      int currentProdId = Convert.ToInt32(cbAddProd.SelectedValue);
 
       // check if the current supplier already has current product in products_suppliers table
       using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())
@@ -326,17 +348,14 @@ namespace Travel_Experts_CS
       int rowNum = Convert.ToInt32(dgvSupplier.CurrentCell.RowIndex);
       int currentSupId = Convert.ToInt32(dgvSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
       string currentSupName = (dgvSupplier["dataGridViewTextBoxColumn2", rowNum].Value).ToString();
-      
-      // Need to obtain current product ID form comboBox
 
-
-      rowNum = Convert.ToInt32(dgvProdOfSupplier.CurrentCell.RowIndex);
-      int currentProdId = Convert.ToInt32(dgvProdOfSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
-      string currentProdName = dgvProdOfSupplier[1, rowNum].Value.ToString();
+      // obtain current product ID form comboBox
+      int currentProdId = Convert.ToInt32(cbDeleteProd.SelectedValue);
+      string currentProdName = (cbAddProd.SelectedItem).ToString();
 
       //  confirmation with user, return if user choose "No"
       if (MessageBox.Show("Are you sure the vendor " +
-        currentSupName + " does not provide the " + currentProdName + " service any more?",
+        currentSupName + " does not provide the this service any more?",
         "Confirmation", MessageBoxButtons.YesNo) == DialogResult.No)
         return;
 
@@ -373,6 +392,7 @@ namespace Travel_Experts_CS
       //  refresh the product of supplier dataGridView and the two comboBoxes
       RefreshPordOfSuppAndLists(currentSupId);
     }
+
 
   } // end of class
 } // end of namespace

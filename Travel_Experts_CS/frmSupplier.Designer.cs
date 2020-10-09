@@ -66,7 +66,6 @@
       this.dgvSupplier.DataSource = this.supplierBindingSource;
       this.dgvSupplier.Location = new System.Drawing.Point(12, 12);
       this.dgvSupplier.Name = "dgvSupplier";
-      this.dgvSupplier.RowHeadersWidth = 51;
       this.dgvSupplier.Size = new System.Drawing.Size(489, 378);
       this.dgvSupplier.TabIndex = 1;
       this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
@@ -77,15 +76,12 @@
       this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
       this.dataGridViewTextBoxColumn1.FillWeight = 80F;
       this.dataGridViewTextBoxColumn1.HeaderText = "Supplier ID";
-      this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
       this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-      this.dataGridViewTextBoxColumn1.Width = 125;
       // 
       // dataGridViewTextBoxColumn2
       // 
       this.dataGridViewTextBoxColumn2.DataPropertyName = "SupName";
       this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
-      this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
       this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
       this.dataGridViewTextBoxColumn2.Width = 250;
       // 
@@ -95,7 +91,7 @@
       this.btnAddSupplier.Name = "btnAddSupplier";
       this.btnAddSupplier.Size = new System.Drawing.Size(121, 46);
       this.btnAddSupplier.TabIndex = 2;
-      this.btnAddSupplier.Text = "Add Supplier";
+      this.btnAddSupplier.Text = "&New Supplier";
       this.btnAddSupplier.UseVisualStyleBackColor = true;
       this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
       // 
@@ -105,7 +101,7 @@
       this.btnEditSupplier.Name = "btnEditSupplier";
       this.btnEditSupplier.Size = new System.Drawing.Size(123, 46);
       this.btnEditSupplier.TabIndex = 3;
-      this.btnEditSupplier.Text = "Edit Supplier";
+      this.btnEditSupplier.Text = "&Edit Supplier";
       this.btnEditSupplier.UseVisualStyleBackColor = true;
       this.btnEditSupplier.Click += new System.EventHandler(this.btnEditSupplier_Click);
       // 
@@ -115,7 +111,7 @@
       this.btnDeleteSupplier.Name = "btnDeleteSupplier";
       this.btnDeleteSupplier.Size = new System.Drawing.Size(123, 46);
       this.btnDeleteSupplier.TabIndex = 4;
-      this.btnDeleteSupplier.Text = "Delete Supplier";
+      this.btnDeleteSupplier.Text = "&Delete Supplier";
       this.btnDeleteSupplier.UseVisualStyleBackColor = true;
       this.btnDeleteSupplier.Click += new System.EventHandler(this.btnDeleteSupplier_Click);
       // 
@@ -124,7 +120,6 @@
       this.dgvProdOfSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.dgvProdOfSupplier.Location = new System.Drawing.Point(12, 415);
       this.dgvProdOfSupplier.Name = "dgvProdOfSupplier";
-      this.dgvProdOfSupplier.RowHeadersWidth = 51;
       this.dgvProdOfSupplier.Size = new System.Drawing.Size(314, 121);
       this.dgvProdOfSupplier.TabIndex = 5;
       // 
@@ -134,7 +129,7 @@
       this.btnAddProd.Name = "btnAddProd";
       this.btnAddProd.Size = new System.Drawing.Size(120, 32);
       this.btnAddProd.TabIndex = 6;
-      this.btnAddProd.Text = "Add Product";
+      this.btnAddProd.Text = "&Add Product";
       this.btnAddProd.UseVisualStyleBackColor = true;
       this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
       // 
@@ -144,7 +139,7 @@
       this.btnDeleteProd.Name = "btnDeleteProd";
       this.btnDeleteProd.Size = new System.Drawing.Size(123, 32);
       this.btnDeleteProd.TabIndex = 8;
-      this.btnDeleteProd.Text = "Delete Product";
+      this.btnDeleteProd.Text = "&Remove Product";
       this.btnDeleteProd.UseVisualStyleBackColor = true;
       this.btnDeleteProd.Click += new System.EventHandler(this.btnDeleteProd_Click);
       // 
@@ -154,7 +149,7 @@
       this.btnExit.Name = "btnExit";
       this.btnExit.Size = new System.Drawing.Size(123, 46);
       this.btnExit.TabIndex = 9;
-      this.btnExit.Text = "&Exit Window";
+      this.btnExit.Text = "E&xit Window";
       this.btnExit.UseVisualStyleBackColor = true;
       this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
       // 
@@ -163,7 +158,7 @@
       this.lblSupplierProdList.AutoSize = true;
       this.lblSupplierProdList.Location = new System.Drawing.Point(12, 396);
       this.lblSupplierProdList.Name = "lblSupplierProdList";
-      this.lblSupplierProdList.Size = new System.Drawing.Size(0, 20);
+      this.lblSupplierProdList.Size = new System.Drawing.Size(0, 16);
       this.lblSupplierProdList.TabIndex = 31;
       // 
       // cbAddProd
@@ -173,9 +168,11 @@
       this.cbAddProd.FormattingEnabled = true;
       this.cbAddProd.Location = new System.Drawing.Point(381, 437);
       this.cbAddProd.Name = "cbAddProd";
-      this.cbAddProd.Size = new System.Drawing.Size(121, 28);
+      this.cbAddProd.Size = new System.Drawing.Size(121, 24);
       this.cbAddProd.TabIndex = 32;
+      this.cbAddProd.Tag = "Products";
       this.cbAddProd.ValueMember = "ProductId";
+      this.cbAddProd.SelectedIndexChanged += new System.EventHandler(this.cbAddProd_SelectedIndexChanged);
       // 
       // productBindingSource
       // 
@@ -188,8 +185,10 @@
       this.cbDeleteProd.FormattingEnabled = true;
       this.cbDeleteProd.Location = new System.Drawing.Point(512, 437);
       this.cbDeleteProd.Name = "cbDeleteProd";
-      this.cbDeleteProd.Size = new System.Drawing.Size(121, 28);
+      this.cbDeleteProd.Size = new System.Drawing.Size(121, 24);
       this.cbDeleteProd.TabIndex = 33;
+      this.cbDeleteProd.Tag = "Products";
+      this.cbDeleteProd.ValueMember = "ProductId";
       this.cbDeleteProd.SelectedIndexChanged += new System.EventHandler(this.cbDeleteProd_SelectedIndexChanged);
       // 
       // productBindingSource1
@@ -198,7 +197,7 @@
       // 
       // frmSupplier
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(644, 565);
       this.Controls.Add(this.cbDeleteProd);

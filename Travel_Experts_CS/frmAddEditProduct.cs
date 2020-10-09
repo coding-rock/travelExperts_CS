@@ -78,6 +78,7 @@ namespace Travel_Experts_CS
                                                     Convert.ToInt32(productIdTextBox.Text));
             objProduct.ProdName = prodNameTextBox.Text;
 
+
           }
 
           dbContext.SubmitChanges();  //  save the changes to database

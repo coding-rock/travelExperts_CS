@@ -1,6 +1,6 @@
 ﻿namespace Travel_Experts_CS
 {
-  partial class frmSupplierAddEditSup
+  partial class frmAddEditSupplier
   {
     /// <summary>
     /// Required designer variable.
@@ -41,10 +41,9 @@
       // 
       this.lblSupplierId.AutoSize = true;
       this.lblSupplierId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblSupplierId.Location = new System.Drawing.Point(51, 49);
-      this.lblSupplierId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lblSupplierId.Location = new System.Drawing.Point(38, 40);
       this.lblSupplierId.Name = "lblSupplierId";
-      this.lblSupplierId.Size = new System.Drawing.Size(93, 20);
+      this.lblSupplierId.Size = new System.Drawing.Size(75, 16);
       this.lblSupplierId.TabIndex = 5;
       this.lblSupplierId.Text = "Supplier Id:";
       // 
@@ -52,40 +51,34 @@
       // 
       this.lblSupplierName.AutoSize = true;
       this.lblSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblSupplierName.Location = new System.Drawing.Point(16, 96);
-      this.lblSupplierName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lblSupplierName.Location = new System.Drawing.Point(12, 78);
       this.lblSupplierName.Name = "lblSupplierName";
-      this.lblSupplierName.Size = new System.Drawing.Size(124, 20);
+      this.lblSupplierName.Size = new System.Drawing.Size(101, 16);
       this.lblSupplierName.TabIndex = 6;
       this.lblSupplierName.Text = "Supplier Name:";
       // 
       // txtSupplierId
       // 
-      this.txtSupplierId.Enabled = false;
-      this.txtSupplierId.Location = new System.Drawing.Point(176, 48);
-      this.txtSupplierId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.txtSupplierId.Location = new System.Drawing.Point(132, 39);
       this.txtSupplierId.Name = "txtSupplierId";
-      this.txtSupplierId.ReadOnly = true;
-      this.txtSupplierId.Size = new System.Drawing.Size(245, 22);
+      this.txtSupplierId.Size = new System.Drawing.Size(185, 20);
       this.txtSupplierId.TabIndex = 8;
       this.txtSupplierId.Tag = "Supplier ID";
       // 
       // txtSupplierName
       // 
-      this.txtSupplierName.Location = new System.Drawing.Point(176, 95);
-      this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.txtSupplierName.Location = new System.Drawing.Point(132, 77);
       this.txtSupplierName.Name = "txtSupplierName";
-      this.txtSupplierName.Size = new System.Drawing.Size(245, 22);
+      this.txtSupplierName.Size = new System.Drawing.Size(185, 20);
       this.txtSupplierName.TabIndex = 9;
       this.txtSupplierName.Tag = "Supplier Name";
       // 
       // btnSave
       // 
       this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnSave.Location = new System.Drawing.Point(55, 146);
-      this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.btnSave.Location = new System.Drawing.Point(41, 119);
       this.btnSave.Name = "btnSave";
-      this.btnSave.Size = new System.Drawing.Size(127, 60);
+      this.btnSave.Size = new System.Drawing.Size(95, 49);
       this.btnSave.TabIndex = 10;
       this.btnSave.Text = "&SAVE";
       this.btnSave.UseVisualStyleBackColor = true;
@@ -94,10 +87,9 @@
       // btnCancel
       // 
       this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnCancel.Location = new System.Drawing.Point(253, 146);
-      this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.btnCancel.Location = new System.Drawing.Point(190, 119);
       this.btnCancel.Name = "btnCancel";
-      this.btnCancel.Size = new System.Drawing.Size(127, 60);
+      this.btnCancel.Size = new System.Drawing.Size(95, 49);
       this.btnCancel.TabIndex = 11;
       this.btnCancel.Text = "&CANCEL";
       this.btnCancel.UseVisualStyleBackColor = true;
@@ -107,18 +99,17 @@
       // 
       this.label1.AutoSize = true;
       this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label1.Location = new System.Drawing.Point(16, 11);
-      this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.label1.Location = new System.Drawing.Point(12, 9);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(148, 20);
+      this.label1.Size = new System.Drawing.Size(119, 16);
       this.label1.TabIndex = 12;
       this.label1.Text = "Add / Edit Supplier";
       // 
-      // frmSupplierAddEditSup
+      // frmAddEditSupplier
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(439, 222);
+      this.ClientSize = new System.Drawing.Size(329, 180);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnCancel);
       this.Controls.Add(this.btnSave);
@@ -126,8 +117,7 @@
       this.Controls.Add(this.txtSupplierId);
       this.Controls.Add(this.lblSupplierName);
       this.Controls.Add(this.lblSupplierId);
-      this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-      this.Name = "frmSupplierAddEditSup";
+      this.Name = "frmAddEditSupplier";
       this.Text = "Form1";
       this.Load += new System.EventHandler(this.frmSupplierAddEditSup_Load);
       this.ResumeLayout(false);
