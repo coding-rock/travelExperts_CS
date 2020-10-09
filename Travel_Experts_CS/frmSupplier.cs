@@ -275,10 +275,11 @@ namespace Travel_Experts_CS
       string currentSupName = (dgvSupplier["dataGridViewTextBoxColumn2", rowNum].Value).ToString();
 
       // Need to obtain current product ID form comboBox
+      int currentProdId = (int)cbAddProd.SelectedValue;
 
-      rowNum = Convert.ToInt32(dgvProdOfSupplier.CurrentCell.RowIndex);
-      int currentProdId = Convert.ToInt32(dgvProdOfSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
-      string currentProdName = dgvProdOfSupplier[2, rowNum].Value.ToString();
+      //rowNum = Convert.ToInt32(dgvProdOfSupplier.CurrentCell.RowIndex);
+      //int currentProdId = Convert.ToInt32(dgvProdOfSupplier["dataGridViewTextBoxColumn1", rowNum].Value);
+      //string currentProdName = dgvProdOfSupplier[2, rowNum].Value.ToString();
 
       // check if the current supplier already has current product in products_suppliers table
       using (TravelExpertDataDataContext dbContext = new TravelExpertDataDataContext())

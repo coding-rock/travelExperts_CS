@@ -38,6 +38,24 @@
       productIdLabel = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
+      // prodNameLabel
+      // 
+      prodNameLabel.AutoSize = true;
+      prodNameLabel.Location = new System.Drawing.Point(10, 53);
+      prodNameLabel.Name = "prodNameLabel";
+      prodNameLabel.Size = new System.Drawing.Size(98, 20);
+      prodNameLabel.TabIndex = 7;
+      prodNameLabel.Text = "Prod Name:";
+      // 
+      // productIdLabel
+      // 
+      productIdLabel.AutoSize = true;
+      productIdLabel.Location = new System.Drawing.Point(10, 15);
+      productIdLabel.Name = "productIdLabel";
+      productIdLabel.Size = new System.Drawing.Size(90, 20);
+      productIdLabel.TabIndex = 9;
+      productIdLabel.Text = "Product Id:";
+      // 
       // btnCancel
       // 
       this.btnCancel.Location = new System.Drawing.Point(206, 86);
@@ -58,42 +76,25 @@
       this.btnSave.UseVisualStyleBackColor = true;
       this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
       // 
-      // prodNameLabel
-      // 
-      prodNameLabel.AutoSize = true;
-      prodNameLabel.Location = new System.Drawing.Point(10, 53);
-      prodNameLabel.Name = "prodNameLabel";
-      prodNameLabel.Size = new System.Drawing.Size(80, 16);
-      prodNameLabel.TabIndex = 7;
-      prodNameLabel.Text = "Prod Name:";
-      // 
       // prodNameTextBox
       // 
       this.prodNameTextBox.Location = new System.Drawing.Point(96, 50);
       this.prodNameTextBox.Name = "prodNameTextBox";
-      this.prodNameTextBox.Size = new System.Drawing.Size(185, 22);
+      this.prodNameTextBox.Size = new System.Drawing.Size(185, 26);
       this.prodNameTextBox.TabIndex = 8;
-      // 
-      // productIdLabel
-      // 
-      productIdLabel.AutoSize = true;
-      productIdLabel.Location = new System.Drawing.Point(10, 15);
-      productIdLabel.Name = "productIdLabel";
-      productIdLabel.Size = new System.Drawing.Size(71, 16);
-      productIdLabel.TabIndex = 9;
-      productIdLabel.Text = "Product Id:";
+      this.prodNameTextBox.Tag = "Product Name";
       // 
       // productIdTextBox
       // 
       this.productIdTextBox.Location = new System.Drawing.Point(96, 12);
       this.productIdTextBox.Name = "productIdTextBox";
       this.productIdTextBox.ReadOnly = true;
-      this.productIdTextBox.Size = new System.Drawing.Size(185, 22);
+      this.productIdTextBox.Size = new System.Drawing.Size(185, 26);
       this.productIdTextBox.TabIndex = 10;
       // 
       // frmAddEditProduct
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(309, 127);
       this.Controls.Add(this.btnCancel);
@@ -103,7 +104,7 @@
       this.Controls.Add(productIdLabel);
       this.Controls.Add(this.productIdTextBox);
       this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "frmAddEditProduct";
       this.Text = "frmAddEditProduct";
       this.Load += new System.EventHandler(this.frmAddEditProduct_Load);

@@ -73,7 +73,7 @@
       this.dtpEnd.Location = new System.Drawing.Point(180, 400);
       this.dtpEnd.Margin = new System.Windows.Forms.Padding(4);
       this.dtpEnd.Name = "dtpEnd";
-      this.dtpEnd.Size = new System.Drawing.Size(434, 23);
+      this.dtpEnd.Size = new System.Drawing.Size(434, 27);
       this.dtpEnd.TabIndex = 34;
       // 
       // dtpStart
@@ -81,7 +81,7 @@
       this.dtpStart.Location = new System.Drawing.Point(180, 344);
       this.dtpStart.Margin = new System.Windows.Forms.Padding(4);
       this.dtpStart.Name = "dtpStart";
-      this.dtpStart.Size = new System.Drawing.Size(434, 23);
+      this.dtpStart.Size = new System.Drawing.Size(434, 27);
       this.dtpStart.TabIndex = 33;
       // 
       // txtPkgCom
@@ -89,16 +89,18 @@
       this.txtPkgCom.Location = new System.Drawing.Point(276, 292);
       this.txtPkgCom.Margin = new System.Windows.Forms.Padding(4);
       this.txtPkgCom.Name = "txtPkgCom";
-      this.txtPkgCom.Size = new System.Drawing.Size(124, 23);
+      this.txtPkgCom.Size = new System.Drawing.Size(124, 27);
       this.txtPkgCom.TabIndex = 32;
+      this.txtPkgCom.Tag = "Agency Commission";
       // 
       // txtPkgBasePrice
       // 
       this.txtPkgBasePrice.Location = new System.Drawing.Point(276, 232);
       this.txtPkgBasePrice.Margin = new System.Windows.Forms.Padding(4);
       this.txtPkgBasePrice.Name = "txtPkgBasePrice";
-      this.txtPkgBasePrice.Size = new System.Drawing.Size(124, 23);
+      this.txtPkgBasePrice.Size = new System.Drawing.Size(124, 27);
       this.txtPkgBasePrice.TabIndex = 31;
+      this.txtPkgBasePrice.Tag = "Package Base Price";
       // 
       // txtPkgDesc
       // 
@@ -108,14 +110,16 @@
       this.txtPkgDesc.Name = "txtPkgDesc";
       this.txtPkgDesc.Size = new System.Drawing.Size(376, 90);
       this.txtPkgDesc.TabIndex = 30;
+      this.txtPkgDesc.Tag = "Package Description";
       // 
       // txtPkgName
       // 
       this.txtPkgName.Location = new System.Drawing.Point(238, 75);
       this.txtPkgName.Margin = new System.Windows.Forms.Padding(4);
       this.txtPkgName.Name = "txtPkgName";
-      this.txtPkgName.Size = new System.Drawing.Size(376, 23);
+      this.txtPkgName.Size = new System.Drawing.Size(376, 27);
       this.txtPkgName.TabIndex = 29;
+      this.txtPkgName.Tag = "Package Name";
       // 
       // txtPackageID
       // 
@@ -123,8 +127,9 @@
       this.txtPackageID.Location = new System.Drawing.Point(238, 21);
       this.txtPackageID.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackageID.Name = "txtPackageID";
-      this.txtPackageID.Size = new System.Drawing.Size(124, 23);
+      this.txtPackageID.Size = new System.Drawing.Size(124, 27);
       this.txtPackageID.TabIndex = 28;
+      this.txtPackageID.Tag = "Package ID";
       // 
       // label7
       // 
@@ -132,7 +137,7 @@
       this.label7.Location = new System.Drawing.Point(21, 400);
       this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label7.Name = "label7";
-      this.label7.Size = new System.Drawing.Size(71, 17);
+      this.label7.Size = new System.Drawing.Size(84, 20);
       this.label7.TabIndex = 27;
       this.label7.Text = "End Date:";
       // 
@@ -142,7 +147,7 @@
       this.label6.Location = new System.Drawing.Point(21, 344);
       this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(76, 17);
+      this.label6.Size = new System.Drawing.Size(91, 20);
       this.label6.TabIndex = 26;
       this.label6.Text = "Start Date:";
       // 
@@ -152,7 +157,7 @@
       this.label5.Location = new System.Drawing.Point(21, 292);
       this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(160, 17);
+      this.label5.Size = new System.Drawing.Size(193, 20);
       this.label5.TabIndex = 25;
       this.label5.Text = "Agency Commission ($):";
       // 
@@ -162,7 +167,7 @@
       this.label4.Location = new System.Drawing.Point(21, 236);
       this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(102, 17);
+      this.label4.Size = new System.Drawing.Size(123, 20);
       this.label4.TabIndex = 24;
       this.label4.Text = "Base Price ($):";
       // 
@@ -172,7 +177,7 @@
       this.label3.Location = new System.Drawing.Point(21, 124);
       this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(83, 17);
+      this.label3.Size = new System.Drawing.Size(100, 20);
       this.label3.TabIndex = 23;
       this.label3.Text = "Description:";
       // 
@@ -182,7 +187,7 @@
       this.label2.Location = new System.Drawing.Point(21, 75);
       this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(49, 17);
+      this.label2.Size = new System.Drawing.Size(58, 20);
       this.label2.TabIndex = 22;
       this.label2.Text = "Name:";
       // 
@@ -192,13 +197,13 @@
       this.label1.Location = new System.Drawing.Point(21, 21);
       this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(84, 17);
+      this.label1.Size = new System.Drawing.Size(100, 20);
       this.label1.TabIndex = 21;
       this.label1.Text = "Package ID:";
       // 
       // frmAddEditPackage
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(637, 547);
       this.Controls.Add(this.btnCancel);

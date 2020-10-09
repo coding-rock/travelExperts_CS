@@ -66,6 +66,7 @@
       this.dgvSupplier.DataSource = this.supplierBindingSource;
       this.dgvSupplier.Location = new System.Drawing.Point(12, 12);
       this.dgvSupplier.Name = "dgvSupplier";
+      this.dgvSupplier.RowHeadersWidth = 51;
       this.dgvSupplier.Size = new System.Drawing.Size(489, 378);
       this.dgvSupplier.TabIndex = 1;
       this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
@@ -76,12 +77,15 @@
       this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
       this.dataGridViewTextBoxColumn1.FillWeight = 80F;
       this.dataGridViewTextBoxColumn1.HeaderText = "Supplier ID";
+      this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
       this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+      this.dataGridViewTextBoxColumn1.Width = 125;
       // 
       // dataGridViewTextBoxColumn2
       // 
       this.dataGridViewTextBoxColumn2.DataPropertyName = "SupName";
       this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
+      this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
       this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
       this.dataGridViewTextBoxColumn2.Width = 250;
       // 
@@ -120,6 +124,7 @@
       this.dgvProdOfSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.dgvProdOfSupplier.Location = new System.Drawing.Point(12, 415);
       this.dgvProdOfSupplier.Name = "dgvProdOfSupplier";
+      this.dgvProdOfSupplier.RowHeadersWidth = 51;
       this.dgvProdOfSupplier.Size = new System.Drawing.Size(314, 121);
       this.dgvProdOfSupplier.TabIndex = 5;
       // 
@@ -158,7 +163,7 @@
       this.lblSupplierProdList.AutoSize = true;
       this.lblSupplierProdList.Location = new System.Drawing.Point(12, 396);
       this.lblSupplierProdList.Name = "lblSupplierProdList";
-      this.lblSupplierProdList.Size = new System.Drawing.Size(0, 16);
+      this.lblSupplierProdList.Size = new System.Drawing.Size(0, 20);
       this.lblSupplierProdList.TabIndex = 31;
       // 
       // cbAddProd
@@ -168,8 +173,9 @@
       this.cbAddProd.FormattingEnabled = true;
       this.cbAddProd.Location = new System.Drawing.Point(381, 437);
       this.cbAddProd.Name = "cbAddProd";
-      this.cbAddProd.Size = new System.Drawing.Size(121, 24);
+      this.cbAddProd.Size = new System.Drawing.Size(121, 28);
       this.cbAddProd.TabIndex = 32;
+      this.cbAddProd.ValueMember = "ProductId";
       // 
       // productBindingSource
       // 
@@ -182,7 +188,7 @@
       this.cbDeleteProd.FormattingEnabled = true;
       this.cbDeleteProd.Location = new System.Drawing.Point(512, 437);
       this.cbDeleteProd.Name = "cbDeleteProd";
-      this.cbDeleteProd.Size = new System.Drawing.Size(121, 24);
+      this.cbDeleteProd.Size = new System.Drawing.Size(121, 28);
       this.cbDeleteProd.TabIndex = 33;
       this.cbDeleteProd.SelectedIndexChanged += new System.EventHandler(this.cbDeleteProd_SelectedIndexChanged);
       // 
@@ -192,7 +198,7 @@
       // 
       // frmSupplier
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(644, 565);
       this.Controls.Add(this.cbDeleteProd);
