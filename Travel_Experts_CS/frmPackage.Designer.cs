@@ -81,7 +81,7 @@
       pkgDescLabel1.AutoSize = true;
       pkgDescLabel1.Location = new System.Drawing.Point(10, 127);
       pkgDescLabel1.Name = "pkgDescLabel1";
-      pkgDescLabel1.Size = new System.Drawing.Size(70, 16);
+      pkgDescLabel1.Size = new System.Drawing.Size(87, 20);
       pkgDescLabel1.TabIndex = 39;
       pkgDescLabel1.Text = "Pkg Desc:";
       // 
@@ -91,7 +91,7 @@
       packageIdLabel.Location = new System.Drawing.Point(10, 61);
       packageIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       packageIdLabel.Name = "packageIdLabel";
-      packageIdLabel.Size = new System.Drawing.Size(80, 16);
+      packageIdLabel.Size = new System.Drawing.Size(96, 20);
       packageIdLabel.TabIndex = 26;
       packageIdLabel.Text = "Package Id:";
       // 
@@ -101,7 +101,7 @@
       pkgAgencyCommissionLabel.Location = new System.Drawing.Point(10, 272);
       pkgAgencyCommissionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       pkgAgencyCommissionLabel.Name = "pkgAgencyCommissionLabel";
-      pkgAgencyCommissionLabel.Size = new System.Drawing.Size(161, 16);
+      pkgAgencyCommissionLabel.Size = new System.Drawing.Size(200, 20);
       pkgAgencyCommissionLabel.TabIndex = 28;
       pkgAgencyCommissionLabel.Text = "Pkg Agency Commission:";
       // 
@@ -111,7 +111,7 @@
       pkgBasePriceLabel.Location = new System.Drawing.Point(10, 221);
       pkgBasePriceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       pkgBasePriceLabel.Name = "pkgBasePriceLabel";
-      pkgBasePriceLabel.Size = new System.Drawing.Size(104, 16);
+      pkgBasePriceLabel.Size = new System.Drawing.Size(130, 20);
       pkgBasePriceLabel.TabIndex = 31;
       pkgBasePriceLabel.Text = "Pkg Base Price:";
       // 
@@ -121,7 +121,7 @@
       pkgEndDateLabel.Location = new System.Drawing.Point(10, 362);
       pkgEndDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       pkgEndDateLabel.Name = "pkgEndDateLabel";
-      pkgEndDateLabel.Size = new System.Drawing.Size(94, 16);
+      pkgEndDateLabel.Size = new System.Drawing.Size(117, 20);
       pkgEndDateLabel.TabIndex = 33;
       pkgEndDateLabel.Text = "Pkg End Date:";
       // 
@@ -131,7 +131,7 @@
       pkgNameLabel.Location = new System.Drawing.Point(10, 92);
       pkgNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       pkgNameLabel.Name = "pkgNameLabel";
-      pkgNameLabel.Size = new System.Drawing.Size(75, 16);
+      pkgNameLabel.Size = new System.Drawing.Size(91, 20);
       pkgNameLabel.TabIndex = 35;
       pkgNameLabel.Text = "Pkg Name:";
       // 
@@ -141,7 +141,7 @@
       pkgStartDateLabel.Location = new System.Drawing.Point(10, 322);
       pkgStartDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       pkgStartDateLabel.Name = "pkgStartDateLabel";
-      pkgStartDateLabel.Size = new System.Drawing.Size(97, 16);
+      pkgStartDateLabel.Size = new System.Drawing.Size(124, 20);
       pkgStartDateLabel.TabIndex = 37;
       pkgStartDateLabel.Text = "Pkg Start Date:";
       // 
@@ -184,14 +184,14 @@
       this.packageBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
       this.packageBindingNavigator.Name = "packageBindingNavigator";
       this.packageBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-      this.packageBindingNavigator.Size = new System.Drawing.Size(231, 30);
+      this.packageBindingNavigator.Size = new System.Drawing.Size(260, 30);
       this.packageBindingNavigator.TabIndex = 30;
       this.packageBindingNavigator.Text = "bindingNavigator1";
       // 
       // bindingNavigatorCountItem
       // 
       this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-      this.bindingNavigatorCountItem.Size = new System.Drawing.Size(41, 27);
+      this.bindingNavigatorCountItem.Size = new System.Drawing.Size(49, 27);
       this.bindingNavigatorCountItem.Text = "of {0}";
       this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
       // 
@@ -201,7 +201,7 @@
       this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
       this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
       this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 27);
+      this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 27);
       this.bindingNavigatorMoveFirstItem.Text = "Move first";
       // 
       // bindingNavigatorMovePreviousItem
@@ -210,7 +210,7 @@
       this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
       this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
       this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 27);
+      this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 27);
       this.bindingNavigatorMovePreviousItem.Text = "Move previous";
       // 
       // bindingNavigatorSeparator
@@ -239,7 +239,7 @@
       this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
       this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
       this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 27);
+      this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 27);
       this.bindingNavigatorMoveNextItem.Text = "Move next";
       // 
       // bindingNavigatorMoveLastItem
@@ -248,7 +248,7 @@
       this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
       this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
       this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-      this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 27);
+      this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 27);
       this.bindingNavigatorMoveLastItem.Text = "Move last";
       // 
       // bindingNavigatorSeparator2
@@ -263,38 +263,38 @@
       this.txtPackageID.Location = new System.Drawing.Point(224, 54);
       this.txtPackageID.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackageID.Name = "txtPackageID";
-      this.txtPackageID.Size = new System.Drawing.Size(124, 22);
+      this.txtPackageID.Size = new System.Drawing.Size(124, 26);
       this.txtPackageID.TabIndex = 27;
       this.txtPackageID.TextChanged += new System.EventHandler(this.txtPackageID_TextChanged);
       // 
       // txtPackageComm
       // 
-      this.txtPackageComm.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgAgencyCommission", true));
+      this.txtPackageComm.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgAgencyCommission", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
       this.txtPackageComm.Enabled = false;
       this.txtPackageComm.Location = new System.Drawing.Point(226, 269);
       this.txtPackageComm.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackageComm.Name = "txtPackageComm";
-      this.txtPackageComm.Size = new System.Drawing.Size(124, 22);
+      this.txtPackageComm.Size = new System.Drawing.Size(124, 26);
       this.txtPackageComm.TabIndex = 29;
       // 
       // txtPackagePrice
       // 
-      this.txtPackagePrice.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgBasePrice", true));
+      this.txtPackagePrice.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgBasePrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
       this.txtPackagePrice.Enabled = false;
       this.txtPackagePrice.Location = new System.Drawing.Point(226, 214);
       this.txtPackagePrice.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackagePrice.Name = "txtPackagePrice";
-      this.txtPackagePrice.Size = new System.Drawing.Size(124, 22);
+      this.txtPackagePrice.Size = new System.Drawing.Size(124, 26);
       this.txtPackagePrice.TabIndex = 32;
       // 
       // txtPackageEnd
       // 
-      this.txtPackageEnd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgEndDate", true));
+      this.txtPackageEnd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgEndDate", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "D"));
       this.txtPackageEnd.Enabled = false;
       this.txtPackageEnd.Location = new System.Drawing.Point(226, 359);
       this.txtPackageEnd.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackageEnd.Name = "txtPackageEnd";
-      this.txtPackageEnd.Size = new System.Drawing.Size(229, 22);
+      this.txtPackageEnd.Size = new System.Drawing.Size(229, 26);
       this.txtPackageEnd.TabIndex = 34;
       // 
       // txtPackageName
@@ -304,17 +304,17 @@
       this.txtPackageName.Location = new System.Drawing.Point(109, 88);
       this.txtPackageName.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackageName.Name = "txtPackageName";
-      this.txtPackageName.Size = new System.Drawing.Size(239, 22);
+      this.txtPackageName.Size = new System.Drawing.Size(239, 26);
       this.txtPackageName.TabIndex = 36;
       // 
       // txtPackageStart
       // 
-      this.txtPackageStart.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgStartDate", true));
+      this.txtPackageStart.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgStartDate", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "D"));
       this.txtPackageStart.Enabled = false;
       this.txtPackageStart.Location = new System.Drawing.Point(226, 319);
       this.txtPackageStart.Margin = new System.Windows.Forms.Padding(4);
       this.txtPackageStart.Name = "txtPackageStart";
-      this.txtPackageStart.Size = new System.Drawing.Size(229, 22);
+      this.txtPackageStart.Size = new System.Drawing.Size(229, 26);
       this.txtPackageStart.TabIndex = 38;
       // 
       // boxPPS
@@ -395,7 +395,7 @@
       // 
       // frmPackage
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(534, 783);
       this.Controls.Add(this.btnDelete);
