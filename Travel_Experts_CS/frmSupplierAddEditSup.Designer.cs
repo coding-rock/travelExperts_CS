@@ -78,7 +78,6 @@
       this.txtSupplierName.Size = new System.Drawing.Size(245, 22);
       this.txtSupplierName.TabIndex = 9;
       this.txtSupplierName.Tag = "Supplier Name";
-      this.txtSupplierName.Text = "Supplier Name";
       // 
       // btnSave
       // 
