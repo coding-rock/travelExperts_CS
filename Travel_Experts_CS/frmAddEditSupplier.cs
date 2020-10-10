@@ -24,6 +24,7 @@ namespace Travel_Experts_CS
       else // user clicked on Edit button
       {
         this.Text = "Edit an existing Supplier";
+        txtSupplierId.Enabled = false;
         txtSupplierId.Text = currentSupplier.SupplierId.ToString();
         txtSupplierName.Text = currentSupplier.SupName;
       }
@@ -63,10 +64,18 @@ namespace Travel_Experts_CS
             {
               string addSuppName = txtSupplierName.Text.ToUpper();
               txtSupplierId.Enabled = true;
+              int addSuppID = Convert.ToInt32(txtSupplierId.Text);
               // check for duplicate
-              var checkForDuplicate = dbContext.Suppliers.SingleOrDefault
+              var checkForDuplicateName = dbContext.Suppliers.SingleOrDefault
                                       (sup => sup.SupName == addSuppName);
-              if (checkForDuplicate != null) // tempSuppName already exist in DB
+              var checkForDuplicateID = dbContext.Suppliers.SingleOrDefault
+                                      (sup => sup.SupplierId == addSuppID);
+              if (checkForDuplicateID != null) // tempSuppID already exist in DB
+              {
+                MessageBox.Show("SupplierID already exists in database", "Duplicated Data");
+                return;
+              }
+              if (checkForDuplicateName != null) // tempSuppName already exist in DB
               {
                 MessageBox.Show(addSuppName + " already exists in database", "Duplicated Data");
                 return;

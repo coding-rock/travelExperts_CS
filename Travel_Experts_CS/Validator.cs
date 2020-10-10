@@ -24,7 +24,7 @@ namespace Travel_Experts_CS
         {
           if ((textBox.Text).Length > maxLen)
           {
-            MessageBox.Show(textBox.Tag + " can be at most " + maxLen.ToString() + " long", "Entry Error");
+            MessageBox.Show(textBox.Tag + " can be at most " + maxLen.ToString() + "characters long", "Entry Error");
             textBox.Focus();
             return false;
           }
@@ -35,7 +35,7 @@ namespace Travel_Experts_CS
         {
           if ((textBox.Text).Length < minLen)
           {
-            MessageBox.Show(textBox.Tag + " must be at least " + minLen.ToString() + " long", "Entry Error");
+            MessageBox.Show(textBox.Tag + " must be at least " + minLen.ToString() + "characters long", "Entry Error");
             textBox.Focus();
             return false;
           }
@@ -46,7 +46,7 @@ namespace Travel_Experts_CS
         {
             if ((textBox.Text).Length > maxLen)
             {
-                MessageBox.Show(textBox.Tag + " can be at most " + maxLen.ToString() + " long", "Entry Error");
+                MessageBox.Show(textBox.Tag + " can be at most " + maxLen.ToString() + "characters long", "Entry Error");
                 textBox.Focus();
                 return false;
             }
