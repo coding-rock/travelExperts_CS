@@ -32,7 +32,7 @@
 - [GitHub repo for Workshop-4](https://github.com/coding-rock/travelExperts_CS)
 
 ## Attributes: 
-- [StackOverflow] (https://stackoverflow.com/)
+- [StackOverflow](https://stackoverflow.com/)
 
 ## Contributors: 
 - Jolanta Warpechowska-Gruca, Instructor
