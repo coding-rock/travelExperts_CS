@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace Travel_Experts_CS
 {
+  /// <summary>
+  /// Designed by Tarek Alatrach
+  /// 2020 October
+  /// </summary>
   public partial class frmPackage : Form
   {
     public frmPackage()

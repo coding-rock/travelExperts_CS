@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/// <summary>
+/// Designed by Tarek Alatrach
+/// 2020 October
+/// </summary>
 namespace Travel_Experts_CS
 {
   public partial class frmAddEditPackage : Form
@@ -60,10 +64,7 @@ namespace Travel_Experts_CS
       if (isAdd)
       {
         // All fields provided, ID unique. Dates younger than today and end > start
-        if (// Validator.IsPresent(txtPackageID) &&
-            // Validator.IsNonNegativeDecimal(txtPackageID) &&
-            // IsUniqueCode(txtPackageID) &&
-            Validator.IsPresent(txtPkgName) &&
+        if (Validator.IsPresent(txtPkgName) &&
             Validator.IsPresent(txtPkgDesc) &&
             Validator.IsMaxLength(txtPkgDesc, 50) &&
             Validator.IsMinLength(txtPkgDesc, 10) &&
@@ -73,12 +74,10 @@ namespace Travel_Experts_CS
             Validator.IsNonNegativeDecimal(txtPkgCom) &&
             IsValidCommPrice(txtPkgCom) &&
             IsValidEndDate(dtpEnd)
-            // add validator for at least one product/supplier??
             )
         {
           Package newPackage = new Package
           {
-            // PackageId = Convert.ToInt32(txtPackageID.Text),
             PkgName = txtPkgName.Text,
             PkgDesc = txtPkgDesc.Text,
             PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text),
@@ -101,11 +100,6 @@ namespace Travel_Experts_CS
             MessageBox.Show(ex.Message, ex.GetType().ToString());
           }
         }
-        //else // Validation fail
-        //{
-        //  DialogResult = DialogResult.Cancel;
-        //}
-        // Commented out for better UX when validation fails (stays in add page)
       }
       else // if modify
       {
@@ -170,7 +164,7 @@ namespace Travel_Experts_CS
       return Convert.ToInt32(txtPackageID.Text);
     }
 
-    // rejects dat if end date is younger than start date
+    // rejects date if end date is younger than start date
     private bool IsValidEndDate(DateTimePicker endDate)
     {
       if (endDate.Value < dtpStart.Value)
