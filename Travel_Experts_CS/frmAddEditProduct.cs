@@ -24,7 +24,7 @@ namespace Travel_Experts_CS
       if (bIsNewProduct)
       {
         this.Text = "Add a new product";
-        productIdTextBox.Text = "-1";
+        productIdTextBox.Text = "";
       }
       //  set the form text and also product ID and name
       else
